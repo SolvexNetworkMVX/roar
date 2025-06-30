@@ -43,7 +43,7 @@ hamburger.addEventListener("click", () => {
     hamburger.querySelector("i").classList.toggle("fa-times");
 });
 
-// Particle Effect for Hero Section
+// Red Particle Effect for Hero Section
 const canvas = document.createElement("canvas");
 document.getElementById("particles").appendChild(canvas);
 canvas.width = window.innerWidth;
@@ -71,7 +71,7 @@ function animateParticles() {
         if (particle.y < 0 || particle.y > canvas.height) particle.speedY *= -1;
         ctx.beginPath();
         ctx.arc(particle.x, particle.y, particle.radius, 0, Math.PI * 2);
-        ctx.fillStyle = "rgba(255, 215, 0, 0.5)";
+        ctx.fillStyle = "rgba(255, 0, 0, 0.5)";
         ctx.fill();
     });
     requestAnimationFrame(animateParticles);
