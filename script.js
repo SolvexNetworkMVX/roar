@@ -34,14 +34,19 @@ gsap.utils.toArray(".animate__card").forEach((element, index) => {
     });
 });
 
-// Hamburger Menu Toggle (Fixed)
+// Hamburger Menu Toggle (Fixed and Improved)
 const hamburger = document.getElementById("hamburger");
 const mobileMenu = document.getElementById("mobile-menu");
 hamburger.addEventListener("click", () => {
     mobileMenu.classList.toggle("hidden");
     const icon = hamburger.querySelector("i");
-    icon.classList.toggle("fa-bars");
-    icon.classList.toggle("fa-times");
+    if (mobileMenu.classList.contains("hidden")) {
+        icon.classList.remove("fa-times");
+        icon.classList.add("fa-bars");
+    } else {
+        icon.classList.remove("fa-bars");
+        icon.classList.add("fa-times");
+    }
 });
 
 // Red Particle Effect for Hero Section
@@ -85,6 +90,17 @@ window.addEventListener("resize", () => {
     canvas.height = window.innerHeight;
 });
 
+// Check Logo Display
+const logo = document.getElementById("logo");
+if (!logo.src || logo.src.includes("undefined")) {
+    console.error("Logo not found or path incorrect. Check 'assets/roar2.png' exists.");
+    logo.style.display = "none"; // Hide if missing, show text instead
+    logo.nextElementSibling.style.display = "block"; // Show "ROAR" text
+} else {
+    logo.onload = () => console.log("Logo loaded successfully.");
+    logo.onerror = () => console.error("Failed to load logo. Verify file path.");
+}
+
 // Fetch real-time ROAR data from MultiversX API
 async function fetchTokenData() {
     try {
@@ -97,7 +113,7 @@ async function fetchTokenData() {
         document.getElementById("total-supply").textContent = parseInt(tokenData.supply || "1847358").toLocaleString();
         document.getElementById("circulating-supply").textContent = parseInt(tokenData.circulatingSupply || "1365532").toLocaleString();
         document.getElementById("burnt-supply").textContent = parseInt(tokenData.burnt || "3748643897427984").toLocaleString();
-        document.getElementById("initial-minted").textContent = parseInt(tokenData.initialMinted || "222222220").toLocaleString();
+        document.getElementById("initial-minted").textContent = parseInt(tokenData.initialMinted || "22222220").toLocaleString();
         document.getElementById("holders").textContent = tokenData.accounts || "1554";
         document.getElementById("transactions").textContent = tokenData.transactions || "7415";
 
@@ -111,11 +127,11 @@ async function fetchTokenData() {
         document.getElementById("transfers").textContent = tokenData.transfers || "75151";
         document.getElementById("trade-count").textContent = tokenData.tradesCount || "9731";
 
-        // Token Properties Section
-        document.getElementById("can-pause").textContent = tokenData.canPause ? "Can Pause" : "Can't Pause";
-        document.getElementById("can-freeze").textContent = tokenData.canFreeze ? "Can Freeze" : "Can't Freeze";
-        document.getElementById("can-wipe").textContent = tokenData.canWipe ? "Can Wipe" : "Can't Wipe";
-        document.getElementById("can-local-mint").textContent = tokenData.canLocalMint ? "Can Local Mint" : "Can't Local Mint";
+        // Token Properties under About
+        document.getElementById("can-pause").textContent = tokenData.canPause ? "✔" : "❌";
+        document.getElementById("can-freeze").textContent = tokenData.canFreeze ? "✔" : "❌";
+        document.getElementById("can-wipe").textContent = tokenData.canWipe ? "✔" : "❌";
+        document.getElementById("can-local-mint").textContent = tokenData.canLocalMint ? "✔" : "❌";
     } catch (error) {
         console.error("Error fetching token data:", error);
         // Fallback values already set in HTML
