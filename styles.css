@@ -67,3 +67,15 @@ nav a:hover {
 .text-red-500 {
     text-shadow: 0 0 10px #FF0000, 0 0 20px #FF0000, 0 0 30px #FF0000;
 }
+
+/* Chart iframe adjustments */
+iframe {
+    max-width: 100%;
+    height: auto;
+}
+
+@media (max-width: 768px) {
+    iframe {
+        height: 300px;
+    }
+}
