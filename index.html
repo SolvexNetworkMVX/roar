@@ -16,7 +16,7 @@
     <nav class="fixed top-0 w-full bg-black bg-opacity-90 z-50">
         <div class="container mx-auto px-4 py-6 flex justify-between items-center">
             <div class="flex items-center">
-                <img src="assets/roar2.png" alt="ROAR Logo" class="h-12 sm:h-16">
+                <img src="assets/roar2.png" alt="ROAR Logo" class="h-12 sm:h-16" id="logo">
                 <span class="text-2xl font-bold font-poppins ml-2 text-red-500">ROAR</span>
             </div>
             <!-- Desktop Menu -->
@@ -55,7 +55,7 @@
     <!-- Hero Section -->
     <section id="home" class="min-h-screen flex items-center justify-center bg-gradient-to-b from-black to-red-900">
         <div class="container mx-auto px-4 text-center animate__hero">
-            <img src="assets/roar2.png" alt="ROAR Logo" class="h-24 sm:h-32 mx-auto mb-6">
+            <img src="assets/roar2.png" alt="ROAR Logo" class="h-24 sm:h-32 mx-auto mb-6" id="logo">
             <h1 class="text-5xl sm:text-6xl font-bold font-poppins text-red-500 mb-4">ROAR</h1>
             <p class="text-xl sm:text-2xl leading-relaxed mb-6 max-w-3xl mx-auto">
                 Your investment, Our commit to your success. Our goal: make invest simple and profitable. Powered by ROARHighSpeX.
@@ -89,30 +89,11 @@
             <p class="text-lg sm:text-xl leading-relaxed mt-6 max-w-3xl mx-auto">
                 Launched on xExchange.com on 23 March 2024 with a supply of 22,222,220 tokens, $ROAR established a place in the top-tier MVX ESDT's and has a strong community of long term holders. R.O.A.R - Real Organization Automatic Rewards. Pretty creative, no?
             </p>
-        </div>
-    </section>
-
-    <!-- Token Properties Section -->
-    <section id="token-properties" class="py-40 bg-black">
-        <div class="container mx-auto px-4 text-center">
-            <h2 class="text-4xl font-bold font-poppins text-red-500 mb-10 animate__fadeIn">Token Properties</h2>
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
-                <div class="bg-gray-900 p-6 rounded-lg hover:shadow-lg hover:shadow-red-500/50 transition">
-                    <h3 class="text-xl font-semibold font-poppins text-red-500 mb-2">Pause</h3>
-                    <p class="text-2xl animate__pulse"><span id="can-pause">Can't Pause</span></p>
-                </div>
-                <div class="bg-gray-900 p-6 rounded-lg hover:shadow-lg hover:shadow-red-500/50 transition">
-                    <h3 class="text-xl font-semibold font-poppins text-red-500 mb-2">Freeze</h3>
-                    <p class="text-2xl animate__pulse"><span id="can-freeze">Can't Freeze</span></p>
-                </div>
-                <div class="bg-gray-900 p-6 rounded-lg hover:shadow-lg hover:shadow-red-500/50 transition">
-                    <h3 class="text-xl font-semibold font-poppins text-red-500 mb-2">Wipe</h3>
-                    <p class="text-2xl animate__pulse"><span id="can-wipe">Can't Wipe</span></p>
-                </div>
-                <div class="bg-gray-900 p-6 rounded-lg hover:shadow-lg hover:shadow-red-500/50 transition">
-                    <h3 class="text-xl font-semibold font-poppins text-red-500 mb-2">Local Mint</h3>
-                    <p class="text-2xl animate__pulse"><span id="can-local-mint">Can't Local Mint</span></p>
-                </div>
+            <div class="flex justify-center mt-6 space-x-6 text-lg sm:text-xl">
+                <p>Pause: <span id="can-pause" class="text-red-500">❌</span></p>
+                <p>Freeze: <span id="can-freeze" class="text-red-500">❌</span></p>
+                <p>Wipe: <span id="can-wipe" class="text-red-500">❌</span></p>
+                <p>Local Mint: <span id="can-local-mint" class="text-red-500">❌</span></p>
             </div>
         </div>
     </section>
@@ -121,7 +102,7 @@
     <div class="h-1 bg-gradient-to-r from-red-600 to-red-900"></div>
 
     <!-- Tokenomics Section -->
-    <section id="tokenomics" class="py-40">
+    <section id="tokenomics" class="py-40 bg-black">
         <div class="container mx-auto px-4 text-center">
             <h2 class="text-4xl font-bold font-poppins text-red-500 mb-10 animate__fadeIn">Tokenomics</h2>
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-4xl mx-auto">
@@ -153,7 +134,7 @@
     <section id="dashboard" class="py-40 bg-black">
         <div class="container mx-auto px-4 text-center">
             <h2 class="text-4xl font-bold font-poppins text-red-500 mb-10 animate__fadeIn">ROAR Dashboard</h2>
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-6 gap-6 max-w-6xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6 max-w-6xl mx-auto">
                 <div class="bg-gray-900 p-6 rounded-lg hover:shadow-lg hover:shadow-red-500/50 transition">
                     <h3 class="text-xl font-semibold font-poppins text-red-500 mb-2">Price</h3>
                     <p class="text-2xl animate__pulse"><span id="roar-price">0.008854</span> USD</p>
@@ -170,6 +151,7 @@
                     <h3 class="text-xl font-semibold font-poppins text-red-500 mb-2">Liquidity</h3>
                     <p class="text-2xl animate__pulse"><span id="liquidity">667.54</span> USD</p>
                 </div>
+                <!-- Second Row -->
                 <div class="bg-gray-900 p-6 rounded-lg hover:shadow-lg hover:shadow-red-500/50 transition">
                     <h3 class="text-xl font-semibold font-poppins text-red-500 mb-2">Holders</h3>
                     <p class="text-2xl animate__pulse"><span id="dashboard-holders">1,554</span></p>
@@ -218,6 +200,7 @@
             <p class="text-lg sm:text-xl leading-relaxed max-w-3xl mx-auto">
                 Stake ROAR on platforms like xExchange or OneDex to earn automatic rewards. Join liquidity pools or participate in native staking contracts for additional benefits.
             </p>
+            <a href="https://swap.onedex.app/staking" class="bg-red-600 text-white px-6 py-3 rounded-full font-semibold text-lg mt-6 hover:scale-105 hover:shadow-lg hover:shadow-red-500/50 transition">Start Staking</a>
         </div>
     </section>
 
