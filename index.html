@@ -37,7 +37,7 @@
             </button>
         </div>
         <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-black w-full absolute top-16 left-0">
+        <div id="mobile-menu" class="hidden md:hidden bg-black w-full absolute top-16 left-0 overflow-hidden">
             <ul class="flex flex-col items-center py-4 space-y-4">
                 <li><a href="#home" class="hover:text-red-500 transition">Home</a></li>
                 <li><a href="#about" class="hover:text-red-500 transition">About</a></li>
@@ -53,14 +53,14 @@
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="min-h-screen flex items-center justify-center bg-gradient-to-b from-black to-red-950">
+    <section id="home" class="min-h-screen flex items-center justify-center bg-gradient-to-b from-black to-red-900">
         <div class="container mx-auto px-4 text-center animate__hero">
             <img src="assets/roar2.png" alt="ROAR Logo" class="h-24 sm:h-32 mx-auto mb-6" id="logo">
             <h1 class="text-5xl sm:text-6xl font-bold font-poppins text-red-500 mb-4">ROAR</h1>
             <p class="text-xl sm:text-2xl leading-relaxed mb-6 max-w-3xl mx-auto">
                 Your investment, Our commit to your success. Our goal: make invest simple and profitable. Powered by ROARHighSpeX.
             </p>
-            <a href="#buy" class="bg-red-600 text-white px-6 py-3 rounded-full font-semibold text-lg hover:scale-105 hover:shadow-lg hover:shadow-red-500/50 transition">Get $ROAR</a>
+            <a href="#buy" class="bg-red-600 text-white px-6 py-3 rounded-full font-semibold text-lg mt-6 hover:scale-105 hover:shadow-lg hover:shadow-red-500/50 transition">Get $ROAR</a>
         </div>
         <div class="absolute inset-0" id="particles"></div>
     </section>
@@ -200,7 +200,7 @@
             <p class="text-lg sm:text-xl leading-relaxed mb-10 max-w-3xl mx-auto">
                 Stake ROAR on platforms like xExchange or OneDex to earn automatic rewards. Join liquidity pools or participate in native staking contracts for additional benefits.
             </p>
-            <a href="https://swap.onedex.app/staking" class="bg-red-600 text-white px-6 py-3 rounded-full font-semibold text-lg hover:scale-105 hover:shadow-lg hover:shadow-red-500/50 transition">Start Staking</a>
+            <a href="https://swap.onedex.app/staking" class="bg-red-600 text-white px-6 py-3 rounded-full font-semibold text-lg mt-6 hover:scale-105 hover:shadow-lg hover:shadow-red-500/50 transition">Start Staking</a>
         </div>
     </section>
 
@@ -214,7 +214,7 @@
             <p class="text-lg sm:text-xl leading-relaxed mb-6 max-w-3xl mx-auto">
                 ROAR’s community-driven DAO lets holders vote on key decisions. The HSXGEN SFT offers exclusive governance benefits for early adopters.
             </p>
-            <a href="https://xoxno.com/collection/HSXGEN-858f65" class="bg-red-600 text-white px-6 py-3 rounded-full font-semibold text-lg hover:scale-105 hover:shadow-lg hover:shadow-red-500/50 transition">Trade HSXGEN SFT</a>
+            <a href="https://xoxno.com/collection/HSXGEN-858f65" class="bg-red-600 text-white px-6 py-3 rounded-full font-semibold text-lg mt-6 hover:scale-105 hover:shadow-lg hover:shadow-red-500/50 transition">Trade HSXGEN SFT</a>
         </div>
     </section>
 
@@ -251,9 +251,9 @@
                 <a href="https://dexscreener.com/multiversx/erd1qqqqqqqqqqqqqpgqqz6vp9y50ep867vnr296mqf3dduh6guvmvlsu3sujc-roarwegld-ebe52f" class="bg-red-600 text-white px-6 py-3 rounded-full font-semibold text-lg hover:scale-105 hover:shadow-lg hover:shadow-red-500/50 transition">DEXScreener</a>
                 <a href="https://explorer.multiversx.com/tokens/ROAR-e5185d" class="bg-red-600 text-white px-6 py-3 rounded-full font-semibold text-lg hover:scale-105 hover:shadow-lg hover:shadow-red-500/50 transition">Explorer</a>
             </div>
-            <!-- DEXScreener Chart Widget -->
+            <!-- DEXScreener Chart Widget (Only Chart, 1D Preselected) -->
             <div class="w-full max-w-4xl mx-auto">
-                <iframe src="https://dexscreener.com/multiversx/erd1qqqqqqqqqqqqqpgqqz6vp9y50ep867vnr296mqf3dduh6guvmvlsu3sujc-roarwegld-ebe52f?embed=chart" frameborder="0" scrolling="no" style="width: 100%; height: 400px; border: none;" class="rounded-lg"></iframe>
+                <iframe src="https://dexscreener.com/multiversx/erd1qqqqqqqqqqqqqpgqqz6vp9y50ep867vnr296mqf3dduh6guvmvlsu3sujc-roarwegld-ebe52f?embed=chart×pan=1d" frameborder="0" scrolling="no" style="width: 100%; height: 400px; border: none;" class="rounded-lg"></iframe>
             </div>
         </div>
     </section>
@@ -269,6 +269,6 @@
         </div>
     </footer>
 
-    <script src="js/main.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
