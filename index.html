@@ -7,19 +7,20 @@
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@300;400&display=swap">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollTrigger.min.js"></script>
 </head>
-<body class="bg-gray-900 text-white font-sans">
+<body class="bg-black text-white font-inter">
     <!-- Navigation -->
-    <nav class="fixed top-0 w-full bg-gray-800 bg-opacity-90 z fifties">
+    <nav class="fixed top-0 w-full bg-black bg-opacity-90 z-50">
         <div class="container mx-auto px-4 py-4 flex justify-between items-center">
             <div class="flex items-center">
-                <img src="assets/roar2.png" alt="ROAR Logo" class="h-12">
-                <span class="text-xl font-bold ml-2">ROAR</span>
+                <img src="assets/roar2.png" alt="ROAR Logo" class="h-12 sm:h-16">
+                <span class="text-2xl font-bold font-poppins ml-2">ROAR</span>
             </div>
-            <ul class="flex space-x-6">
+            <!-- Desktop Menu -->
+            <ul class="hidden md:flex space-x-6">
                 <li><a href="#home" class="hover:text-yellow-400 transition">Home</a></li>
                 <li><a href="#about" class="hover:text-yellow-400 transition">About</a></li>
                 <li><a href="#tokenomics" class="hover:text-yellow-400 transition">Tokenomics</a></li>
@@ -29,51 +30,76 @@
                 <li><a href="#dao" class="hover:text-yellow-400 transition">DAO</a></li>
                 <li><a href="#community" class="hover:text-yellow-400 transition">Community</a></li>
                 <li><a href="#charts" class="hover:text-yellow-400 transition">Charts</a></li>
-                <li><a href="#roadmap" class="hover:text-yellow-400 transition">Roadmap</a></li>
-                <li><a href="#faq" class="hover:text-yellow-400 transition">FAQ</a></li>
+            </ul>
+            <!-- Hamburger Icon -->
+            <button class="md:hidden text-2xl focus:outline-none" id="hamburger">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-black w-full absolute top-16 left-0">
+            <ul class="flex flex-col items-center py-4 space-y-4">
+                <li><a href="#home" class="hover:text-yellow-400 transition">Home</a></li>
+                <li><a href="#about" class="hover:text-yellow-400 transition">About</a></li>
+                <li><a href="#tokenomics" class="hover:text-yellow-400 transition">Tokenomics</a></li>
+                <li><a href="#dashboard" class="hover:text-yellow-400 transition">Dashboard</a></li>
+                <li><a href="#buy" class="hover:text-yellow-400 transition">How to Buy</a></li>
+                <li><a href="#staking" class="hover:text-yellow-400 transition">Staking</a></li>
+                <li><a href="#dao" class="hover:text-yellow-400 transition">DAO</a></li>
+                <li><a href="#community" class="hover:text-yellow-400 transition">Community</a></li>
+                <li><a href="#charts" class="hover:text-yellow-400 transition">Charts</a></li>
             </ul>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="min-h-screen flex items-center justify-center bg-cover bg-center" style="background-image: url('assets/lion-bg.jpg');">
+    <section id="home" class="min-h-screen flex items-center justify-center bg-gradient-to-b from-black to-gray-900">
         <div class="container mx-auto px-4 text-center animate__hero">
-            <img src="assets/roar2.png" alt="ROAR Logo" class="h-24 mx-auto mb-4">
-            <h1 class="text-5xl font-bold mb-4">ROAR: Real Organization Automatic Rewards</h1>
-            <p class="text-xl mb-6">Your investment 📊, Our commit to your success. Our goal, make invest simple and profitable $ROAR 🦁 Powered by @ROARHighSpeX #Multivers𝕏</p>
-            <a href="#buy" class="bg-yellow-400 text-gray-900 px-6 py-3 rounded-full font-semibold hover:bg-yellow-500 transition">Get ROAR Now</a>
+            <img src="assets/roar2.png" alt="ROAR Logo" class="h-24 sm:h-32 mx-auto mb-6">
+            <h1 class="text-5xl sm:text-6xl font-bold font-poppins mb-4">ROAR: Real Organization Automatic Rewards</h1>
+            <p class="text-xl sm:text-2xl leading-relaxed mb-6 max-w-3xl mx-auto">
+                Your investment 📊, Our commit to your success. Our goal, make invest simple and profitable $ROAR 🦁 Powered by @ROARHighSpeX #Multivers𝕏
+            </p>
+            <a href="#buy" class="bg-gradient-to-r from-yellow-400 to-orange-500 text-black px-6 py-3 rounded-full font-semibold text-lg hover:shadow-lg hover:shadow-yellow-400/50 transition">Get ROAR Now</a>
         </div>
+        <div class="absolute inset-0" id="particles"></div>
     </section>
 
+    <!-- Gradient Divider -->
+    <div class="h-1 bg-gradient-to-r from-yellow-400 to-orange-500"></div>
+
     <!-- About Section -->
-    <section id="about" class="py-20">
+    <section id="about" class="py-32">
         <div class="container mx-auto px-4">
-            <h2 class="text-4xl font-bold text-center mb-10 animate__fadeIn">About ROAR</h2>
-            <p class="text-lg text-center max-w-3xl mx-auto">
-                ROAR is a DAO community-driven token on the MultiversX blockchain, designed for fair launches, staking rewards, and community utility. Real Organization Automatic Rewards empowers holders to participate in governance and earn rewards through a secure proof-of-stake model.[](https://docs.multiversx.com/tokens/nft-tokens/)
+            <h2 class="text-4xl font-bold font-poppins text-center mb-10 animate__fadeIn">About ROAR</h2>
+            <p class="text-lg sm:text-xl leading-relaxed text-center max-w-3xl mx-auto">
+                ROAR is a DAO community-driven token on the MultiversX blockchain, designed for fair launches, staking rewards, and community utility. Real Organization Automatic Rewards empowers holders to participate in governance and earn rewards through a secure proof-of-stake model.
             </p>
         </div>
     </section>
 
+    <!-- Gradient Divider -->
+    <div class="h-1 bg-gradient-to-r from-yellow-400 to-orange-500"></div>
+
     <!-- Tokenomics Section -->
-    <section id="tokenomics" class="py-20 bg-gray-800">
+    <section id="tokenomics" class="py-32 bg-black">
         <div class="container mx-auto px-4">
-            <h2 class="text-4xl font-bold text-center mb-10 animate__fadeIn">Tokenomics</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="bg-gray-700 p-6 rounded-lg animate__card">
-                    <h3 class="text-xl font-semibold mb-2">Token Details</h3>
+            <h2 class="text-4xl font-bold font-poppins text-center mb-10 animate__fadeIn">Tokenomics</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                <div class="bg-gray-900 p-6 rounded-lg animate__card hover:shadow-lg hover:shadow-yellow-400/50 transition">
+                    <h3 class="text-xl font-semibold font-poppins mb-2">Token Details</h3>
                     <p>Ticker: <span id="ticker">ROAR</span></p>
                     <p>Decimals: <span id="decimals">10</span></p>
                     <p>Total Supply: <span id="total-supply">1,847,358</span> ROAR</p>
                     <p>Circulating Supply: <span id="circulating-supply">1,365,532</span> ROAR</p>
                 </div>
-                <div class="bg-gray-700 p-6 rounded-lg animate__card">
-                    <h3 class="text-xl font-semibold mb-2">Burn & Distribution</h3>
+                <div class="bg-gray-900 p-6 rounded-lg animate__card hover:shadow-lg hover:shadow-yellow-400/50 transition">
+                    <h3 class="text-xl font-semibold font-poppins mb-2">Burn & Distribution</h3>
                     <p>Burnt Supply: <span id="burnt-supply">3,748,643,897.427984</span> ROAR</p>
                     <p>Initial Minted: <span id="initial-minted">22,222,220</span> ROAR</p>
                 </div>
-                <div class="bg-gray-700 p-6 rounded-lg animate__card">
-                    <h3 class="text-xl font-semibold mb-2">Community Stats</h3>
+                <div class="bg-gray-900 p-6 rounded-lg animate__card hover:shadow-lg hover:shadow-yellow-400/50 transition">
+                    <h3 class="text-xl font-semibold font-poppins mb-2">Community Stats</h3>
                     <p>Holders: <span id="holders">1,554</span></p>
                     <p>Transactions: <span id="transactions">7,415</span></p>
                 </div>
@@ -81,139 +107,126 @@
         </div>
     </section>
 
+    <!-- Gradient Divider -->
+    <div class="h-1 bg-gradient-to-r from-yellow-400 to-orange-500"></div>
+
     <!-- Dashboard Section -->
-    <section id="dashboard" class="py-20">
+    <section id="dashboard" class="py-32">
         <div class="container mx-auto px-4">
-            <h2 class="text-4xl font-bold text-center mb-10 animate__fadeIn">ROAR Dashboard</h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div class="bg-gray-700 p-6 rounded-lg animate__card">
-                    <h3 class="text-xl font-semibold mb-2">Price</h3>
-                    <p>$<span id="roar-price">0.008854</span></p>
+            <h2 class="text-4xl font-bold font-poppins text-center mb-10 animate__fadeIn">ROAR Dashboard</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                <div class="bg-gray-900 p-6 rounded-lg animate__card hover:shadow-lg hover:shadow-yellow-400/50 transition">
+                    <h3 class="text-xl font-semibold font-poppins mb-2">Price</h3>
+                    <p class="animate__pulse"><span id="roar-price">0.008854</span> USD</p>
                 </div>
-                <div class="bg-gray-700 p-6 rounded-lg animate__card">
-                    <h3 class="text-xl font-semibold mb-2">Market Cap</h3>
-                    <p>$<span id="market-cap">12,090.49</span></p>
+                <div class="bg-gray-900 p-6 rounded-lg animate__card hover:shadow-lg hover:shadow-yellow-400/50 transition">
+                    <h3 class="text-xl font-semibold font-poppins mb-2">Market Cap</h3>
+                    <p class="animate__pulse"><span id="market-cap">12,090.49</span> USD</p>
                 </div>
-                <div class="bg-gray-700 p-6 rounded-lg animate__card">
-                    <h3 class="text-xl font-semibold mb-2">24H Volume</h3>
-                    <p>$<span id="volume">12.66</span></p>
+                <div class="bg-gray-900 p-6 rounded-lg animate__card hover:shadow-lg hover:shadow-yellow-400/50 transition">
+                    <h3 class="text-xl font-semibold font-poppins mb-2">24H Volume</h3>
+                    <p class="animate__pulse"><span id="volume">12.66</span> USD</p>
                 </div>
-                <div class="bg-gray-700 p-6 rounded-lg animate__card">
-                    <h3 class="text-xl font-semibold mb-2">Liquidity</h3>
-                    <p>$<span id="liquidity">667.54</span></p>
+                <div class="bg-gray-900 p-6 rounded-lg animate__card hover:shadow-lg hover:shadow-yellow-400/50 transition">
+                    <h3 class="text-xl font-semibold font-poppins mb-2">Liquidity</h3>
+                    <p class="animate__pulse"><span id="liquidity">667.54</span> USD</p>
                 </div>
-                <div class="bg-gray-700 p-6 rounded-lg animate__card">
-                    <h3 class="text-xl font-semibold mb-2">Holders</h3>
-                    <p><span id="dashboard-holders">1,554</span></p>
+                <div class="bg-gray-900 p-6 rounded-lg animate__card hover:shadow-lg hover:shadow-yellow-400/50 transition">
+                    <h3 class="text-xl font-semibold font-poppins mb-2">Holders</h3>
+                    <p class="animate__pulse"><span id="dashboard-holders">1,554</span></p>
                 </div>
-                <div class="bg-gray-700 p-6 rounded-lg animate__card">
-                    <h3 class="text-xl font-semibold mb-2">Transactions</h3>
-                    <p><span id="dashboard-transactions">7,415</span></p>
+                <div class="bg-gray-900 p-6 rounded-lg animate__card hover:shadow-lg hover:shadow-yellow-400/50 transition">
+                    <h3 class="text-xl font-semibold font-poppins mb-2">Transactions</h3>
+                    <p class="animate__pulse"><span id="dashboard-transactions">7,415</span></p>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- Gradient Divider -->
+    <div class="h-1 bg-gradient-to-r from-yellow-400 to-orange-500"></div>
 
     <!-- How to Buy Section -->
-    <section id="buy" class="py-20 bg-gray-800">
+    <section id="buy" class="py-32 bg-black">
         <div class="container mx-auto px-4">
-            <h2 class="text-4xl font-bold text-center mb-10 animate__fadeIn">How to Buy ROAR</h2>
-            <p class="text-lg text-center max-w-3xl mx-auto mb-6">
+            <h2 class="text-4xl font-bold font-poppins text-center mb-10 animate__fadeIn">How to Buy ROAR</h2>
+            <p class="text-lg sm:text-xl leading-relaxed text-center max-w-3xl mx-auto mb-6">
                 Get ROAR on decentralized exchanges like xExchange or OneDex, or use xPortal to buy and hold.
             </p>
-            <div class="flex justify-center space-x-4">
-                <a href="https://xexchange.com/trade?firstToken=EGLD&secondToken=ROAR-e5185d" class="bg-yellow-400 text-gray-900 px-6 py-3 rounded-full font-semibold hover:bg-yellow-500 transition">xExchange</a>
-                <a href="https://swap.onedex.app/swap?firstToken=EGLD&secondToken=ROAR-e5185d&state=Lite&type=simple" class="bg-yellow-400 text-gray-900 px-6 py-3 rounded-full font-semibold hover:bg-yellow-500 transition">OneDex</a>
-                <a href="https://xportal.com/" class="bg-yellow-400 text-gray-900 px-6 py-3 rounded-full font-semibold hover:bg-yellow-500 transition">xPortal</a>
+            <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+                <a href="https://xexchange.com/trade?firstToken=EGLD&secondToken=ROAR-e5185d" class="bg-gradient-to-r from-yellow-400 to-orange-500 text-black px-6 py-3 rounded-full font-semibold text-lg hover:shadow-lg hover:shadow-yellow-400/50 transition">xExchange</a>
+                <a href="https://swap.onedex.app/swap?firstToken=EGLD&secondToken=ROAR-e5185d&state=Lite&type=simple" class="bg-gradient-to-r from-yellow-400 to-orange-500 text-black px-6 py-3 rounded-full font-semibold text-lg hover:shadow-lg hover:shadow-yellow-400/50 transition">OneDex</a>
+                <a href="https://xportal.com/" class="bg-gradient-to-r from-yellow-400 to-orange-500 text-black px-6 py-3 rounded-full font-semibold text-lg hover:shadow-lg hover:shadow-yellow-400/50 transition">xPortal</a>
             </div>
         </div>
     </section>
 
+    <!-- Gradient Divider -->
+    <div class="h-1 bg-gradient-to-r from-yellow-400 to-orange-500"></div>
+
     <!-- Staking Section -->
-    <section id="staking" class="py-20">
+    <section id="staking" class="py-32">
         <div class="container mx-auto px-4">
-            <h2 class="text-4xl font-bold text-center mb-10 animate__fadeIn">Staking ROAR</h2>
-            <p class="text-lg text-center max-w-3xl mx-auto">
+            <h2 class="text-4xl font-bold font-poppins text-center mb-10 animate__fadeIn">Staking ROAR</h2>
+            <p class="text-lg sm:text-xl leading-relaxed text-center max-w-3xl mx-auto">
                 Stake ROAR on platforms like xExchange or OneDex to earn automatic rewards. Join liquidity pools or participate in native staking contracts for additional benefits.
             </p>
         </div>
     </section>
 
+    <!-- Gradient Divider -->
+    <div class="h-1 bg-gradient-to-r from-yellow-400 to-orange-500"></div>
+
     <!-- DAO Section -->
-    <section id="dao" class="py-20 bg-gray-800">
+    <section id="dao" class="py-32 bg-black">
         <div class="container mx-auto px-4">
-            <h2 class="text-4xl font-bold text-center mb-10 animate__fadeIn">DAO Governance</h2>
-            <p class="text-lg text-center max-w-3xl mx-auto">
+            <h2 class="text-4xl font-bold font-poppins text-center mb-10 animate__fadeIn">DAO Governance</h2>
+            <p class="text-lg sm:text-xl leading-relaxed text-center max-w-3xl mx-auto">
                 ROAR’s community-driven DAO lets holders vote on key decisions. The 777 GENESIS DAO SFT offers exclusive governance benefits for early adopters.
             </p>
         </div>
     </section>
 
+    <!-- Gradient Divider -->
+    <div class="h-1 bg-gradient-to-r from-yellow-400 to-orange-500"></div>
+
     <!-- Community Section -->
-    <section id="community" class="py-20">
+    <section id="community" class="py-32">
         <div class="container mx-auto px-4">
-            <h2 class="text-4xl font-bold text-center mb-10 animate__fadeIn">Join the Lion Squad</h2>
-            <p class="text-lg text-center max-w-3xl mx-auto mb-6">
+            <h2 class="text-4xl font-bold font-poppins text-center mb-10 animate__fadeIn">Join the Lion Squad</h2>
+            <p class="text-lg sm:text-xl leading-relaxed text-center max-w-3xl mx-auto mb-6">
                 Connect with the ROAR community on Twitter and Telegram. Participate in raffles on JEXchange and support the MultiversX ecosystem!
             </p>
-            <div class="flex justify-center space-x-4">
+            <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
                 <a href="https://x.com/ROARHighSpeX" class="text-2xl hover:text-yellow-400 transition"><i class="fab fa-twitter"></i></a>
                 <a href="https://t.me/HighSpeXROAR" class="text-2xl hover:text-yellow-400 transition"><i class="fab fa-telegram"></i></a>
-                <a href="https://app.jexchange.io/" class="bg-yellow-400 text-gray-900 px-6 py-3 rounded-full font-semibold hover:bg-yellow-500 transition">JEXchange</a>
+                <a href="https://app.jexchange.io/" class="bg-gradient-to-r from-yellow-400 to-orange-500 text-black px-6 py-3 rounded-full font-semibold text-lg hover:shadow-lg hover:shadow-yellow-400/50 transition">JEXchange</a>
             </div>
         </div>
     </section>
+
+    <!-- Gradient Divider -->
+    <div class="h-1 bg-gradient-to-r from-yellow-400 to-orange-500"></div>
 
     <!-- Charts Section -->
-    <section id="charts" class="py-20 bg-gray-800">
+    <section id="charts" class="py-32 bg-black">
         <div class="container mx-auto px-4">
-            <h2 class="text-4xl font-bold text-center mb-10 animate__fadeIn">Charts & Explorer</h2>
-            <p class="text-lg text-center max-w-3xl mx-auto mb-6">
+            <h2 class="text-4xl font-bold font-poppins text-center mb-10 animate__fadeIn">Charts & Explorer</h2>
+            <p class="text-lg sm:text-xl leading-relaxed text-center max-w-3xl mx-auto mb-6">
                 Track ROAR’s performance with real-time data and explore transactions on the MultiversX blockchain.
             </p>
-            <div class="flex justify-center space-x-4">
-                <a href="https://e-compass.io/token/ROAR-e5185d" class="bg-yellow-400 text-gray-900 px-6 py-3 rounded-full font-semibold hover:bg-yellow-500 transition">e-Compass</a>
-                <a href="https://dexscreener.com/multiversx/erd1qqqqqqqqqqqqqpgqqz6vp9y50ep867vnr296mqf3dduh6guvmvlsu3sujc-roarwegld-ebe52f" class="bg-yellow-400 text-gray-900 px-6 py-3 rounded-full font-semibold hover:bg-yellow-500 transition">DEXScreener</a>
-                <a href="https://explorer.multiversx.com/tokens/ROAR-e5185d" class="bg-yellow-400 text-gray-900 px-6 py-3 rounded-full font-semibold hover:bg-yellow-500 transition">Explorer</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Roadmap Section -->
-    <section id="roadmap" class="py-20">
-        <div class="container mx-auto px-4">
-            <h2 class="text-4xl font-bold text-center mb-10 animate__fadeIn">Roadmap</h2>
-            <p class="text-lg text-center max-w-3xl mx-auto">
-                Stay tuned for updates on ROAR’s future, including new DeFi integrations, DAO enhancements, and community initiatives.
-            </p>
-        </div>
-    </section>
-
-    <!-- FAQ Section -->
-    <section id="faq" class="py-20 bg-gray-800">
-        <div class="container mx-auto px-4">
-            <h2 class="text-4xl font-bold text-center mb-10 animate__fadeIn">FAQ</h2>
-            <div class="space-y-4 max-w-3xl mx-auto">
-                <div class="bg-gray-700 p-4 rounded-lg">
-                    <h3 class="text-xl font-semibold">What is ROAR?</h3>
-                    <p>ROAR is a fungible ESDT token on MultiversX, focused on community-driven DAO governance, staking rewards, and DeFi utility.</p>
-                </div>
-                <div class="bg-gray-700 p-4 rounded-lg">
-                    <h3 class="text-xl font-semibold">How can I stake ROAR?</h3>
-                    <p>Stake ROAR on xExchange, OneDex, or through native staking contracts to earn rewards.</p>
-                </div>
-                <div class="bg-gray-700 p-4 rounded-lg">
-                    <h3 class="text-xl font-semibold">What is the 777 GENESIS DAO SFT?</h3>
-                    <p>It’s a semi-fungible token for early adopters, offering exclusive governance benefits in the ROAR DAO.</p>
-                </div>
+            <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+                <a href="https://e-compass.io/token/ROAR-e5185d" class="bg-gradient-to-r from-yellow-400 to-orange-500 text-black px-6 py-3 rounded-full font-semibold text-lg hover:shadow-lg hover:shadow-yellow-400/50 transition">e-Compass</a>
+                <a href="https://dexscreener.com/multiversx/erd1qqqqqqqqqqqqqpgqqz6vp9y50ep867vnr296mqf3dduh6guvmvlsu3sujc-roarwegld-ebe52f" class="bg-gradient-to-r from-yellow-400 to-orange-500 text-black px-6 py-3 rounded-full font-semibold text-lg hover:shadow-lg hover:shadow-yellow-400/50 transition">DEXScreener</a>
+                <a href="https://explorer.multiversx.com/tokens/ROAR-e5185d" class="bg-gradient-to-r from-yellow-400 to-orange-500 text-black px-6 py-3 rounded-full font-semibold text-lg hover:shadow-lg hover:shadow-yellow-400/50 transition">Explorer</a>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-800 py-6">
+    <footer class="bg-black py-6">
         <div class="container mx-auto px-4 text-center">
-            <p>© 2025 ROAR Project. All rights reserved.</p>
+            <p class="text-lg">© 2025 ROAR Project. All rights reserved.</p>
             <div class="flex justify-center space-x-4 mt-4">
                 <a href="https://x.com/ROARHighSpeX" class="text-2xl hover:text-yellow-400 transition"><i class="fab fa-twitter"></i></a>
                 <a href="https://t.me/HighSpeXROAR" class="text-2xl hover:text-yellow-400 transition"><i class="fab fa-telegram"></i></a>
