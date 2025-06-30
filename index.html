@@ -92,11 +92,36 @@
         </div>
     </section>
 
+    <!-- Token Properties Section -->
+    <section id="token-properties" class="py-40 bg-black">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl font-bold font-poppins text-red-500 mb-10 animate__fadeIn">Token Properties</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
+                <div class="bg-gray-900 p-6 rounded-lg hover:shadow-lg hover:shadow-red-500/50 transition">
+                    <h3 class="text-xl font-semibold font-poppins text-red-500 mb-2">Pause</h3>
+                    <p class="text-2xl animate__pulse"><span id="can-pause">Can't Pause</span></p>
+                </div>
+                <div class="bg-gray-900 p-6 rounded-lg hover:shadow-lg hover:shadow-red-500/50 transition">
+                    <h3 class="text-xl font-semibold font-poppins text-red-500 mb-2">Freeze</h3>
+                    <p class="text-2xl animate__pulse"><span id="can-freeze">Can't Freeze</span></p>
+                </div>
+                <div class="bg-gray-900 p-6 rounded-lg hover:shadow-lg hover:shadow-red-500/50 transition">
+                    <h3 class="text-xl font-semibold font-poppins text-red-500 mb-2">Wipe</h3>
+                    <p class="text-2xl animate__pulse"><span id="can-wipe">Can't Wipe</span></p>
+                </div>
+                <div class="bg-gray-900 p-6 rounded-lg hover:shadow-lg hover:shadow-red-500/50 transition">
+                    <h3 class="text-xl font-semibold font-poppins text-red-500 mb-2">Local Mint</h3>
+                    <p class="text-2xl animate__pulse"><span id="can-local-mint">Can't Local Mint</span></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Gradient Divider -->
     <div class="h-1 bg-gradient-to-r from-red-600 to-red-900"></div>
 
     <!-- Tokenomics Section -->
-    <section id="tokenomics" class="py-40 bg-black">
+    <section id="tokenomics" class="py-40">
         <div class="container mx-auto px-4 text-center">
             <h2 class="text-4xl font-bold font-poppins text-red-500 mb-10 animate__fadeIn">Tokenomics</h2>
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-4xl mx-auto">
@@ -125,10 +150,10 @@
     <div class="h-1 bg-gradient-to-r from-red-600 to-red-900"></div>
 
     <!-- Dashboard Section -->
-    <section id="dashboard" class="py-40">
+    <section id="dashboard" class="py-40 bg-black">
         <div class="container mx-auto px-4 text-center">
             <h2 class="text-4xl font-bold font-poppins text-red-500 mb-10 animate__fadeIn">ROAR Dashboard</h2>
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-6 gap-6 max-w-6xl mx-auto">
                 <div class="bg-gray-900 p-6 rounded-lg hover:shadow-lg hover:shadow-red-500/50 transition">
                     <h3 class="text-xl font-semibold font-poppins text-red-500 mb-2">Price</h3>
                     <p class="text-2xl animate__pulse"><span id="roar-price">0.008854</span> USD</p>
@@ -153,6 +178,14 @@
                     <h3 class="text-xl font-semibold font-poppins text-red-500 mb-2">Transactions</h3>
                     <p class="text-2xl animate__pulse"><span id="dashboard-transactions">7,415</span></p>
                 </div>
+                <div class="bg-gray-900 p-6 rounded-lg hover:shadow-lg hover:shadow-red-500/50 transition">
+                    <h3 class="text-xl font-semibold font-poppins text-red-500 mb-2">Transfers</h3>
+                    <p class="text-2xl animate__pulse"><span id="transfers">75,151</span></p>
+                </div>
+                <div class="bg-gray-900 p-6 rounded-lg hover:shadow-lg hover:shadow-red-500/50 transition">
+                    <h3 class="text-xl font-semibold font-poppins text-red-500 mb-2">Trade Count</h3>
+                    <p class="text-2xl animate__pulse"><span id="trade-count">9,731</span></p>
+                </div>
             </div>
         </div>
     </section>
@@ -161,7 +194,7 @@
     <div class="h-1 bg-gradient-to-r from-red-600 to-red-900"></div>
 
     <!-- How to Buy Section -->
-    <section id="buy" class="py-40 bg-black">
+    <section id="buy" class="py-40">
         <div class="container mx-auto px-4 text-center">
             <h2 class="text-4xl font-bold font-poppins text-red-500 mb-10 animate__fadeIn">How to Buy ROAR</h2>
             <p class="text-lg sm:text-xl leading-relaxed mb-6 max-w-3xl mx-auto">
@@ -179,7 +212,7 @@
     <div class="h-1 bg-gradient-to-r from-red-600 to-red-900"></div>
 
     <!-- Staking Section -->
-    <section id="staking" class="py-40">
+    <section id="staking" class="py-40 bg-black">
         <div class="container mx-auto px-4 text-center">
             <h2 class="text-4xl font-bold font-poppins text-red-500 mb-10 animate__fadeIn">Staking ROAR</h2>
             <p class="text-lg sm:text-xl leading-relaxed max-w-3xl mx-auto">
@@ -192,7 +225,7 @@
     <div class="h-1 bg-gradient-to-r from-red-600 to-red-900"></div>
 
     <!-- DAO Section -->
-    <section id="dao" class="py-40 bg-black">
+    <section id="dao" class="py-40">
         <div class="container mx-auto px-4 text-center">
             <h2 class="text-4xl font-bold font-poppins text-red-500 mb-10 animate__fadeIn">DAO Governance</h2>
             <p class="text-lg sm:text-xl leading-relaxed mb-6 max-w-3xl mx-auto">
@@ -206,7 +239,7 @@
     <div class="h-1 bg-gradient-to-r from-red-600 to-red-900"></div>
 
     <!-- Community Section -->
-    <section id="community" class="py-40">
+    <section id="community" class="py-40 bg-black">
         <div class="container mx-auto px-4 text-center">
             <h2 class="text-4xl font-bold font-poppins text-red-500 mb-10 animate__fadeIn">Join the Lion Squad</h2>
             <p class="text-lg sm:text-xl leading-relaxed mb-6 max-w-3xl mx-auto">
@@ -224,7 +257,7 @@
     <div class="h-1 bg-gradient-to-r from-red-600 to-red-900"></div>
 
     <!-- Charts Section -->
-    <section id="charts" class="py-40 bg-black">
+    <section id="charts" class="py-40">
         <div class="container mx-auto px-4 text-center">
             <h2 class="text-4xl font-bold font-poppins text-red-500 mb-10 animate__fadeIn">Charts & Explorer</h2>
             <p class="text-lg sm:text-xl leading-relaxed mb-6 max-w-3xl mx-auto">
