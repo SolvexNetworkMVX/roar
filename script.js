@@ -34,18 +34,41 @@ gsap.utils.toArray(".animate__card").forEach((element, index) => {
     });
 });
 
-// Hamburger Menu Toggle (Fixed and Improved)
+// Redesigned Hamburger Menu with Modern Animation
 const hamburger = document.getElementById("hamburger");
 const mobileMenu = document.getElementById("mobile-menu");
+const menuIcon = hamburger.querySelector("i");
+
 hamburger.addEventListener("click", () => {
-    mobileMenu.classList.toggle("hidden");
-    const icon = hamburger.querySelector("i");
-    if (mobileMenu.classList.contains("hidden")) {
-        icon.classList.remove("fa-times");
-        icon.classList.add("fa-bars");
+    const isOpen = mobileMenu.classList.contains("open");
+    if (isOpen) {
+        gsap.to(mobileMenu, {
+            height: 0,
+            opacity: 0,
+            duration: 0.3,
+            ease: "power2.out",
+            onComplete: () => mobileMenu.classList.remove("open")
+        });
+        gsap.to(menuIcon, {
+            rotation: 0,
+            duration: 0.3,
+            ease: "power2.out"
+        });
+        menuIcon.classList.remove("fa-times");
+        menuIcon.classList.add("fa-bars");
     } else {
-        icon.classList.remove("fa-bars");
-        icon.classList.add("fa-times");
+        mobileMenu.classList.add("open");
+        gsap.fromTo(mobileMenu, 
+            { height: 0, opacity: 0 },
+            { height: "auto", opacity: 1, duration: 0.3, ease: "power2.inOut" }
+        );
+        gsap.to(menuIcon, {
+            rotation: 90,
+            duration: 0.3,
+            ease: "power2.inOut"
+        });
+        menuIcon.classList.remove("fa-bars");
+        menuIcon.classList.add("fa-times");
     }
 });
 
@@ -94,8 +117,8 @@ window.addEventListener("resize", () => {
 const logo = document.getElementById("logo");
 if (!logo.src || logo.src.includes("undefined")) {
     console.error("Logo not found or path incorrect. Check 'assets/roar2.png' exists.");
-    logo.style.display = "none"; // Hide if missing, show text instead
-    logo.nextElementSibling.style.display = "block"; // Show "ROAR" text
+    logo.style.display = "none";
+    logo.nextElementSibling.style.display = "block";
 } else {
     logo.onload = () => console.log("Logo loaded successfully.");
     logo.onerror = () => console.error("Failed to load logo. Verify file path.");
