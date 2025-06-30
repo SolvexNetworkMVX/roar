@@ -34,13 +34,14 @@ gsap.utils.toArray(".animate__card").forEach((element, index) => {
     });
 });
 
-// Hamburger Menu Toggle
+// Hamburger Menu Toggle (Fixed)
 const hamburger = document.getElementById("hamburger");
 const mobileMenu = document.getElementById("mobile-menu");
 hamburger.addEventListener("click", () => {
     mobileMenu.classList.toggle("hidden");
-    hamburger.querySelector("i").classList.toggle("fa-bars");
-    hamburger.querySelector("i").classList.toggle("fa-times");
+    const icon = hamburger.querySelector("i");
+    icon.classList.toggle("fa-bars");
+    icon.classList.toggle("fa-times");
 });
 
 // Red Particle Effect for Hero Section
@@ -91,12 +92,12 @@ async function fetchTokenData() {
         const tokenData = await response.json();
 
         // Tokenomics Section
-        document.getElementById("ticker").textContent = tokenData.ticker || "ROAR";
+        document.getElementById("ticker").textContent = tokenData.identifier || "ROAR-e5185d";
         document.getElementById("decimals").textContent = tokenData.decimals || 10;
         document.getElementById("total-supply").textContent = parseInt(tokenData.supply || "1847358").toLocaleString();
         document.getElementById("circulating-supply").textContent = parseInt(tokenData.circulatingSupply || "1365532").toLocaleString();
         document.getElementById("burnt-supply").textContent = parseInt(tokenData.burnt || "3748643897427984").toLocaleString();
-        document.getElementById("initial-minted").textContent = parseInt(tokenData.initialMinted || "22222220000000000").toLocaleString();
+        document.getElementById("initial-minted").textContent = parseInt(tokenData.initialMinted || "222222220").toLocaleString();
         document.getElementById("holders").textContent = tokenData.accounts || "1554";
         document.getElementById("transactions").textContent = tokenData.transactions || "7415";
 
@@ -107,6 +108,14 @@ async function fetchTokenData() {
         document.getElementById("liquidity").textContent = parseFloat(tokenData.totalLiquidity || "667.54").toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
         document.getElementById("dashboard-holders").textContent = tokenData.accounts || "1554";
         document.getElementById("dashboard-transactions").textContent = tokenData.transactions || "7415";
+        document.getElementById("transfers").textContent = tokenData.transfers || "75151";
+        document.getElementById("trade-count").textContent = tokenData.tradesCount || "9731";
+
+        // Token Properties Section
+        document.getElementById("can-pause").textContent = tokenData.canPause ? "Can Pause" : "Can't Pause";
+        document.getElementById("can-freeze").textContent = tokenData.canFreeze ? "Can Freeze" : "Can't Freeze";
+        document.getElementById("can-wipe").textContent = tokenData.canWipe ? "Can Wipe" : "Can't Wipe";
+        document.getElementById("can-local-mint").textContent = tokenData.canLocalMint ? "Can Local Mint" : "Can't Local Mint";
     } catch (error) {
         console.error("Error fetching token data:", error);
         // Fallback values already set in HTML
