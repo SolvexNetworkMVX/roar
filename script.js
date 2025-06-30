@@ -5,7 +5,7 @@ gsap.registerPlugin(ScrollTrigger);
 gsap.from(".animate__hero img", { y: -50, opacity: 0, duration: 1, delay: 0.2 });
 gsap.from(".animate__hero h1", { y: -30, opacity: 0, duration: 1, delay: 0.4 });
 gsap.from(".animate__hero p", { y: -20, opacity: 0, duration: 1, delay: 0.6 });
-gsap.from(".animate__hero a", { y: -10, opacity: 0, duration: 1, delay: 0.8 });
+gsap.from(".animate__hero a", { scale: 0.8, opacity: 0, duration: 1, delay: 0.8 });
 
 // Scroll-triggered animations for sections
 gsap.utils.toArray(".animate__fadeIn").forEach((element) => {
@@ -24,6 +24,7 @@ gsap.utils.toArray(".animate__card").forEach((element, index) => {
     gsap.from(element, {
         opacity: 0,
         y: 20,
+        scale: 0.95,
         duration: 0.8,
         delay: index * 0.2,
         scrollTrigger: {
@@ -31,6 +32,56 @@ gsap.utils.toArray(".animate__card").forEach((element, index) => {
             start: "top 90%",
         },
     });
+});
+
+// Hamburger Menu Toggle
+const hamburger = document.getElementById("hamburger");
+const mobileMenu = document.getElementById("mobile-menu");
+hamburger.addEventListener("click", () => {
+    mobileMenu.classList.toggle("hidden");
+    hamburger.querySelector("i").classList.toggle("fa-bars");
+    hamburger.querySelector("i").classList.toggle("fa-times");
+});
+
+// Particle Effect for Hero Section
+const canvas = document.createElement("canvas");
+document.getElementById("particles").appendChild(canvas);
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+const ctx = canvas.getContext("2d");
+const particles = [];
+const particleCount = 50;
+
+for (let i = 0; i < particleCount; i++) {
+    particles.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        radius: Math.random() * 2 + 1,
+        speedX: (Math.random() - 0.5) * 2,
+        speedY: (Math.random() - 0.5) * 2,
+    });
+}
+
+function animateParticles() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    particles.forEach((particle) => {
+        particle.x += particle.speedX;
+        particle.y += particle.speedY;
+        if (particle.x < 0 || particle.x > canvas.width) particle.speedX *= -1;
+        if (particle.y < 0 || particle.y > canvas.height) particle.speedY *= -1;
+        ctx.beginPath();
+        ctx.arc(particle.x, particle.y, particle.radius, 0, Math.PI * 2);
+        ctx.fillStyle = "rgba(255, 215, 0, 0.5)";
+        ctx.fill();
+    });
+    requestAnimationFrame(animateParticles);
+}
+animateParticles();
+
+// Resize canvas on window resize
+window.addEventListener("resize", () => {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
 });
 
 // Fetch real-time ROAR data from MultiversX API
@@ -58,6 +109,7 @@ async function fetchTokenData() {
         document.getElementById("dashboard-transactions").textContent = tokenData.transactions || "7415";
     } catch (error) {
         console.error("Error fetching token data:", error);
+        // Fallback values already set in HTML
     }
 }
 
