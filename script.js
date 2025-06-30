@@ -34,7 +34,7 @@ gsap.utils.toArray(".animate__card").forEach((element, index) => {
     });
 });
 
-// Redesigned Hamburger Menu with Modern Animation
+// Redesigned Hamburger Menu with CSS Animation
 const hamburger = document.getElementById("hamburger");
 const mobileMenu = document.getElementById("mobile-menu");
 const menuIcon = hamburger.querySelector("i");
@@ -42,31 +42,13 @@ const menuIcon = hamburger.querySelector("i");
 hamburger.addEventListener("click", () => {
     const isOpen = mobileMenu.classList.contains("open");
     if (isOpen) {
-        gsap.to(mobileMenu, {
-            height: 0,
-            opacity: 0,
-            duration: 0.3,
-            ease: "power2.out",
-            onComplete: () => mobileMenu.classList.remove("open")
-        });
-        gsap.to(menuIcon, {
-            rotation: 0,
-            duration: 0.3,
-            ease: "power2.out"
-        });
+        mobileMenu.classList.remove("open");
+        hamburger.classList.remove("active");
         menuIcon.classList.remove("fa-times");
         menuIcon.classList.add("fa-bars");
     } else {
         mobileMenu.classList.add("open");
-        gsap.fromTo(mobileMenu, 
-            { height: 0, opacity: 0 },
-            { height: "auto", opacity: 1, duration: 0.3, ease: "power2.inOut" }
-        );
-        gsap.to(menuIcon, {
-            rotation: 90,
-            duration: 0.3,
-            ease: "power2.inOut"
-        });
+        hamburger.classList.add("active");
         menuIcon.classList.remove("fa-bars");
         menuIcon.classList.add("fa-times");
     }
