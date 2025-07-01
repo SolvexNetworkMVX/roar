@@ -37,23 +37,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // Rewritten "Get $ROAR" button functionality
-    const getRoarBtn = document.getElementById("get-roar-btn");
-    if (getRoarBtn) {
-        getRoarBtn.addEventListener("click", (e) => {
-            e.preventDefault(); // Prevent default anchor behavior
-            const buySection = document.getElementById("buy");
-            if (buySection) {
-                buySection.scrollIntoView({ behavior: "smooth" });
-                console.log("Successfully scrolled to #buy");
-            } else {
-                console.error("Section #buy not found in the document");
-            }
-        });
-    } else {
-        console.error("Get $ROAR button not found");
-    }
-
     // Hero Section Animation
     gsap.registerPlugin(ScrollTrigger);
     gsap.from("#hero-logo", { y: -50, opacity: 0, duration: 1, delay: 0.2, ease: "power2.out" });
