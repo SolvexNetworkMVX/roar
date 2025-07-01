@@ -7,8 +7,8 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    overflow-x: hidden; /* Disable horizontal swipe */
-    -webkit-overflow-scrolling: touch; /* Smooth scrolling on mobile */
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
 }
 
 .font-poppins {
@@ -20,20 +20,28 @@ nav a:hover {
     color: #FF0000;
 }
 
+/* Animation fixes */
 .animate__hero img, .animate__hero h1, .animate__hero p, .animate__hero a {
     opacity: 0;
-    will-change: transform; /* Optimize animation performance */
+    will-change: transform;
+}
+
+.animate__hero a {
+    max-width: 200px; /* Limit button width */
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center; /* Center text within button */
 }
 
 .animate__fadeIn {
     opacity: 0;
-    will-change: transform; /* Optimize animation performance */
+    will-change: transform;
 }
 
 .animate__card {
     opacity: 0;
     transform: translateY(20px);
-    will-change: transform; /* Optimize animation performance */
+    will-change: transform;
 }
 
 .animate__pulse {
@@ -56,7 +64,7 @@ nav a:hover {
     background: #1A0000;
 }
 
-/* Mobile menu */
+/* Mobile menu fixes */
 #mobile-menu {
     display: none;
     position: absolute;
@@ -72,7 +80,8 @@ nav a:hover {
 }
 
 #mobile-menu.active {
-    max-height: 300px; /* Adjust based on content height */
+    display: block;
+    max-height: 300px;
 }
 
 /* Hamburger icon animation */
@@ -111,36 +120,27 @@ iframe {
     iframe {
         height: 300px;
     }
+    .animate__hero a {
+        padding: 0.5rem 1rem; /* Adjust padding for mobile */
+    }
+}
+
+@media (min-width: 768px) {
+    .animate__hero a {
+        padding: 0.5rem 1.5rem; /* Adjusted padding for desktop */
+    }
 }
 
 /* Footer styles */
 footer {
-    margin-top: auto; /* Pushes footer to bottom */
+    margin-top: auto;
     border-top-width: 2px;
     padding-top: 1.5rem;
     padding-bottom: 1.5rem;
-    background-color: #0f0f0f; /* bg-gray-950 */
+    background-color: #0f0f0f;
 }
 
 footer a.text-red-500 {
     font-weight: bold;
     transition: color 0.3s ease;
-}
-
-/* Ensure button stays visible */
-.animate__hero a {
-    position: relative;
-    z-index: 20; /* Above particles, increased from 10 */
-    opacity: 1 !important; /* Override any hidden opacity */
-    display: block !important; /* Ensure visibility */
-}
-
-/* Media query for button size on PC */
-@media (min-width: 768px) {
-    .animate__hero a {
-        padding-left: 0.75rem; /* px-3 */
-        padding-right: 0.75rem; /* px-3 */
-        padding-top: 0.5rem; /* py-2 */
-        padding-bottom: 0.5rem; /* py-2 */
-    }
 }
