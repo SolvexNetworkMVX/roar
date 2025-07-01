@@ -7,6 +7,8 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    overflow-x: hidden; /* Disable horizontal swipe */
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on mobile */
 }
 
 .font-poppins {
@@ -124,4 +126,12 @@ footer a.text-red-500 {
     z-index: 10; /* Above particles */
     opacity: 1 !important; /* Override any hidden opacity */
     display: block !important; /* Ensure visibility */
+}
+
+/* Media query for button size on PC */
+@media (min-width: 768px) {
+    .animate__hero a {
+        padding-left: 2rem; /* px-8 */
+        padding-right: 2rem; /* px-8 */
+    }
 }
