@@ -3,6 +3,10 @@
 body {
     font-family: 'Inter', sans-serif;
     background: #000000;
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 .font-poppins {
@@ -56,6 +60,7 @@ nav a:hover {
     width: 100%;
     background: #000000;
     z-index: 50;
+    padding: 1rem 0;
 }
 
 #mobile-menu.active {
@@ -101,7 +106,20 @@ iframe {
 }
 
 /* Footer styles */
+footer {
+    margin-top: auto; /* Pushes footer to bottom */
+    border-top-width: 2px;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
 footer a.text-red-500 {
     font-weight: bold;
     transition: color 0.3s ease;
+}
+
+/* Ensure button stays visible */
+.animate__hero a {
+    position: relative;
+    z-index: 10; /* Above particles */
 }
