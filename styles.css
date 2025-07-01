@@ -128,14 +128,14 @@ footer a.text-red-500 {
 }
 
 /* Ensure button and logo stay visible */
-#logo {
+#logo, #hero-logo {
     position: relative;
     z-index: 10; /* Above particles */
 }
 
 .animate__hero a {
     position: relative;
-    z-index: 20; /* Above particles and logo */
+    z-index: 20; /* Above particles and logos */
     opacity: 1 !important; /* Override any hidden opacity */
     display: block !important; /* Ensure visibility */
 }
