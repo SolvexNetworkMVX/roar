@@ -37,28 +37,35 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // Handle "Get $ROAR" button for external link with mobile compatibility
+    // Handle "Get $ROAR" button for external link with robust logic
     const getRoarBtn = document.getElementById("get-roar-btn");
     if (getRoarBtn) {
+        const handleNavigation = () => {
+            const url = getRoarBtn.getAttribute("href");
+            if (!url) {
+                console.error("No href attribute found on Get $ROAR button");
+                return;
+            }
+            try {
+                if (window.location.hostname === "localhost" || window.location.protocol === "file:") {
+                    window.open(url, "_blank");
+                } else {
+                    window.location.assign(url); // Alternative to href for better compatibility
+                }
+                console.log("Navigating to:", url, "on", window.location.hostname);
+            } catch (error) {
+                console.error("Navigation failed:", error);
+            }
+        };
+
         getRoarBtn.addEventListener("click", (e) => {
             e.preventDefault();
-            if (window.location.hostname === "localhost" || window.location.protocol === "file:") {
-                window.open(getRoarBtn.getAttribute("href"), "_blank");
-            } else {
-                window.location.href = getRoarBtn.getAttribute("href");
-            }
-            console.log("Attempting to navigate to:", getRoarBtn.getAttribute("href"), "on", window.location.hostname);
+            handleNavigation();
         });
 
-        // Add touch event for mobile compatibility
         getRoarBtn.addEventListener("touchend", (e) => {
             e.preventDefault();
-            if (window.location.hostname === "localhost" || window.location.protocol === "file:") {
-                window.open(getRoarBtn.getAttribute("href"), "_blank");
-            } else {
-                window.location.href = getRoarBtn.getAttribute("href");
-            }
-            console.log("Touch navigation to:", getRoarBtn.getAttribute("href"), "on", window.location.hostname);
+            handleNavigation();
         }, { passive: false });
     } else {
         console.error("Get $ROAR button not found");
@@ -155,10 +162,6 @@ document.addEventListener("DOMContentLoaded", () => {
             document.getElementById("decimals").textContent = tokenData.decimals || 10;
             document.getElementById("total-supply").textContent = parseInt(tokenData.supply || "1847358").toLocaleString();
             document.getElementById("circulating-supply").textContent = parseInt(tokenData.circulatingSupply || "1365532").toLocaleString();
-            document.getElementById("burnt-supply").textContent = parseInt(tokenData.burnt || "3748643897427984").toLocaleString();
-            document.getElementById("initial-minted").textContent = parseInt(tokenData.initialMinted || "22222220").toLocaleString();
-            document.getElementById("holders").textContent = tokenData.accounts || "1554";
-            document.getElementById("transactions").textContent = tokenData.transactions || "7415";
 
             // Dashboard Section
             document.getElementById("roar-price").textContent = parseFloat(tokenData.price || "0.008854").toFixed(6);
