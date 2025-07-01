@@ -103,24 +103,33 @@
     <section id="tokenomics" class="py-40 bg-black">
         <div class="container mx-auto px-4 text-center">
             <h2 class="text-4xl font-bold font-poppins text-red-500 mb-10">Tokenomics</h2>
-            <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-4xl mx-auto">
-                <div class="bg-gray-900 p-6 rounded-lg">
-                    <h3 class="text-xl font-semibold font-poppins text-red-500 mb-2">Token Details</h3>
-                    <p class="text-lg leading-relaxed">ID: <span id="ticker">ROAR-e5185d</span></p>
-                    <p class="text-lg leading-relaxed">Decimals: <span id="decimals">10</span></p>
-                    <p class="text-lg leading-relaxed">Total Supply: <span id="total-supply">1,847,358</span> ROAR</p>
-                    <p class="text-lg leading-relaxed">Circulating Supply: <span id="circulating-supply">1,365,532</span> ROAR</p>
-                </div>
-                <div class="bg-gray-900 p-6 rounded-lg">
-                    <h3 class="text-xl font-semibold font-poppins text-red-500 mb-2">Burn & Distribution</h3>
-                    <p class="text-lg leading-relaxed">Burnt Supply: <span id="burnt-supply">3,748,643,897.427984</span> ROAR</p>
-                    <p class="text-lg leading-relaxed">Initial Minted: <span id="initial-minted">22,222,220</span> ROAR</p>
-                </div>
-                <div class="bg-gray-900 p-6 rounded-lg">
-                    <h3 class="text-xl font-semibold font-poppins text-red-500 mb-2">Community Stats</h3>
-                    <p class="text-lg leading-relaxed">Holders: <span id="holders">1,554</span></p>
-                    <p class="text-lg leading-relaxed">Transactions: <span id="transactions">7,415</span></p>
-                </div>
+            <div class="max-w-2xl mx-auto">
+                <table class="w-full bg-gray-900 rounded-lg shadow-md overflow-hidden">
+                    <thead>
+                        <tr class="bg-red-600 text-white">
+                            <th class="py-2 px-4 text-left">Property</th>
+                            <th class="py-2 px-4 text-left">Value</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="border-t border-gray-700">
+                            <td class="py-2 px-4 font-semibold text-red-500">ID</td>
+                            <td class="py-2 px-4"><span id="ticker">ROAR-e5185d</span></td>
+                        </tr>
+                        <tr class="border-t border-gray-700">
+                            <td class="py-2 px-4 font-semibold text-red-500">Decimals</td>
+                            <td class="py-2 px-4"><span id="decimals">10</span></td>
+                        </tr>
+                        <tr class="border-t border-gray-700">
+                            <td class="py-2 px-4 font-semibold text-red-500">Total Supply</td>
+                            <td class="py-2 px-4"><span id="total-supply">1,847,358</span> ROAR</td>
+                        </tr>
+                        <tr class="border-t border-gray-700">
+                            <td class="py-2 px-4 font-semibold text-red-500">Circulating Supply</td>
+                            <td class="py-2 px-4"><span id="circulating-supply">1,365,532</span> ROAR</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </section>
@@ -227,9 +236,9 @@
                 Connect with the ROAR community on Twitter and Telegram. Participate in raffles on JEXchange and support the MultiversX ecosystem!
             </p>
             <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
-                <a href="https://x.com/ROARHighSpeX" class="text-2xl text-white hover:text-red-500"><i class="fab fa-twitter"></i></a>
-                <a href="https://t.me/HighSpeXROAR" class="text-2xl text-white hover:text-red-500"><i class="fab fa-telegram"></i></a>
                 <a href="https://app.jexchange.io/" class="bg-red-600 text-white px-6 py-3 rounded-full font-semibold text-lg">JEXchange</a>
+                <a href="https://x.com/ROARHighSpeX" class="text-2xl text-white hover:text-red-500 ml-4 sm:ml-0"><i class="fab fa-twitter"></i></a>
+                <a href="https://t.me/HighSpeXROAR" class="text-2xl text-white hover:text-red-500 ml-4 sm:ml-4"><i class="fab fa-telegram"></i></a>
             </div>
         </div>
     </section>
