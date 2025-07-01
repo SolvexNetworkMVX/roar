@@ -34,21 +34,21 @@ gsap.utils.toArray(".animate__card").forEach((element, index) => {
     });
 });
 
-// Redesigned Hamburger Menu with CSS Animation
+// Redesigned Hamburger Menu from Scratch
 const hamburger = document.getElementById("hamburger");
 const mobileMenu = document.getElementById("mobile-menu");
 const menuIcon = hamburger.querySelector("i");
 
 hamburger.addEventListener("click", () => {
-    const isOpen = mobileMenu.classList.contains("open");
-    if (isOpen) {
-        mobileMenu.classList.remove("open");
+    const isActive = hamburger.classList.contains("active");
+    if (isActive) {
         hamburger.classList.remove("active");
+        mobileMenu.classList.remove("active");
         menuIcon.classList.remove("fa-times");
         menuIcon.classList.add("fa-bars");
     } else {
-        mobileMenu.classList.add("open");
         hamburger.classList.add("active");
+        mobileMenu.classList.add("active");
         menuIcon.classList.remove("fa-bars");
         menuIcon.classList.add("fa-times");
     }
@@ -106,7 +106,7 @@ if (!logo.src || logo.src.includes("undefined")) {
     logo.onerror = () => console.error("Failed to load logo. Verify file path.");
 }
 
-// Fetch real-time ROAR data from MultiversX API with e-Compass Liquidity
+// Fetch real-time ROAR data from MultiversX API
 async function fetchTokenData() {
     try {
         const response = await fetch("https://api.multiversx.com/tokens/ROAR-e5185d");
@@ -126,9 +126,7 @@ async function fetchTokenData() {
         document.getElementById("roar-price").textContent = parseFloat(tokenData.price || "0.008854").toFixed(6);
         document.getElementById("market-cap").textContent = parseFloat(tokenData.marketCap || "12090.49").toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
         document.getElementById("volume").textContent = parseFloat(tokenData.totalVolume24h || "12.66").toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-        // Adjust liquidity to match e-Compass (e.g., 3000 USD as per image)
-        const eCompassLiquidity = 3000; // Placeholder - replace with actual API call if available
-        document.getElementById("liquidity").textContent = eCompassLiquidity.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+        document.getElementById("liquidity").textContent = parseFloat(tokenData.totalLiquidity || "667.54").toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
         document.getElementById("dashboard-holders").textContent = tokenData.accounts || "1554";
         document.getElementById("dashboard-transactions").textContent = tokenData.transactions || "7415";
         document.getElementById("transfers").textContent = tokenData.transfers || "75151";
