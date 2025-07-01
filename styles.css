@@ -49,12 +49,17 @@ nav a:hover {
 
 /* Mobile menu */
 #mobile-menu {
-    transition: max-height 0.3s ease-in-out;
-    max-height: 0;
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: #000000;
+    z-index: 50;
 }
 
-#mobile-menu.open {
-    max-height: 300px; /* Ajustat pentru a acomoda conținutul meniului */
+#mobile-menu.active {
+    display: block;
 }
 
 /* Hamburger icon animation */
@@ -64,7 +69,7 @@ nav a:hover {
 
 #hamburger.active .fas {
     transform: rotate(90deg);
-    color: #FF3333; /* Roșu mai intens la activare */
+    color: #FF3333;
 }
 
 /* Particle container */
