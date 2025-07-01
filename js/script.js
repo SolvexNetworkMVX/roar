@@ -7,29 +7,28 @@ document.addEventListener("DOMContentLoaded", () => {
     if (hamburger && mobileMenu && menuIcon) {
         hamburger.addEventListener("click", () => {
             const isOpen = mobileMenu.style.maxHeight === "300px";
-            mobileMenu.style.maxHeight = isOpen ? "0" : "300px"; // Toggle max-height
-            menuIcon.className = isOpen ? "fas fa-bars text-red-500" : "fas fa-times text-red-500"; // Switch icon
+            mobileMenu.style.maxHeight = isOpen ? "0" : "300px";
+            menuIcon.className = isOpen ? "fas fa-bars text-red-500" : "fas fa-times text-red-500";
         });
 
-        // Close menu when a link is clicked
+        // Close menu and reset icon on link click
         mobileMenu.querySelectorAll("a").forEach(link => {
             link.addEventListener("click", () => {
                 mobileMenu.style.maxHeight = "0";
-                menuIcon.className = "fas fa-bars text-red-500";
+                if (menuIcon) menuIcon.className = "fas fa-bars text-red-500";
             });
         });
     } else {
         console.error("Hamburger menu elements not found:", { hamburger, mobileMenu, menuIcon });
     }
 
-    // Smooth scrolling for all navigation links
+    // Smooth scrolling for navigation links
     document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
         anchor.addEventListener("click", (e) => {
             e.preventDefault();
             const target = document.querySelector(anchor.getAttribute("href"));
             if (target) {
                 target.scrollIntoView({ behavior: "smooth" });
-                // Close mobile menu if open
                 if (mobileMenu && mobileMenu.style.maxHeight === "300px") {
                     mobileMenu.style.maxHeight = "0";
                     if (menuIcon) menuIcon.className = "fas fa-bars text-red-500";
@@ -37,6 +36,18 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
     });
+
+    // Ensure "Get $ROAR" button scrolls to #buy
+    const getRoarBtn = document.getElementById("get-roar-btn");
+    if (getRoarBtn) {
+        getRoarBtn.addEventListener("click", (e) => {
+            e.preventDefault();
+            const target = document.querySelector("#buy");
+            if (target) target.scrollIntoView({ behavior: "smooth" });
+        });
+    } else {
+        console.error("Get $ROAR button not found");
+    }
 
     // Hero Section Animation
     gsap.registerPlugin(ScrollTrigger);
@@ -104,9 +115,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const heroLogo = document.getElementById("hero-logo");
     [navLogo, heroLogo].forEach(logo => {
         if (!logo.src || logo.src.includes("undefined")) {
-            console.error("Logo not found. Verify 'roar2.png' exists in the root directory.");
+            console.error("Logo not found. Verify file exists:", logo.src);
             logo.style.display = "none";
-            logo.nextElementSibling.style.display = "block"; // Show text if logo fails
+            logo.nextElementSibling.style.display = "block";
         } else {
             logo.onload = () => console.log("Logo loaded successfully for", logo.id);
             logo.onerror = () => {
