@@ -1,12 +1,11 @@
 /* Reset și îmbunătățiri generale */
 * {
     box-sizing: border-box;
-    transition: all 0.3s ease; /* Subtilitate pentru toate tranzitiile */
 }
 
 body {
-    background: linear-gradient(to bottom, #000000, #1a0000); /* Gradient mai profund pentru fundal */
-    -webkit-font-smoothing: antialiased; /* Text mai clar pe dispozitive */
+    background: linear-gradient(to bottom, #000000, #1a0000); /* Gradient mai profund */
+    -webkit-font-smoothing: antialiased; /* Text mai clar */
     -moz-osx-font-smoothing: grayscale;
 }
 
@@ -24,6 +23,17 @@ nav ul a:hover {
     color: #ff6666; /* Hover pe hamburger */
 }
 
+/* Hamburger Menu Fix */
+#mobile-menu {
+    z-index: 60; /* Asigură vizibilitatea deasupra altor elemente */
+    transition: max-height 0.3s ease; /* Doar tranzitia pentru max-height */
+}
+
+#mobile-menu ul {
+    background: #000000; /* Fundal negru pentru contrast */
+    padding: 1rem 0;
+}
+
 /* Hero Section */
 #home {
     position: relative;
@@ -31,11 +41,11 @@ nav ul a:hover {
 }
 
 #hero-logo {
-    filter: drop-shadow(0 0 10px rgba(255, 0, 0, 0.5)); /* Umbră luminoasă pe logo */
+    filter: drop-shadow(0 0 10px rgba(255, 0, 0, 0.3)); /* Umbră mai slabă */
 }
 
 #home h1 {
-    text-shadow: 0 0 5px rgba(255, 0, 0, 0.7); /* Efect subtil de neon */
+    text-shadow: 0 0 5px rgba(255, 0, 0, 0.4); /* Neon mai slab */
 }
 
 #get-roar-btn {
@@ -49,9 +59,9 @@ nav ul a:hover {
     background-color: #cc0000; /* Roșu mai închis la hover */
 }
 
-/* Particule */
+/* Particule Fix */
 #particles canvas {
-    opacity: 0.8; /* Subtil reducere a intensității particulelor */
+    opacity: 1; /* Revenim la opacitate completă */
 }
 
 /* Secțiuni */
@@ -104,16 +114,30 @@ table td {
     background: rgba(0, 0, 0, 0.8); /* Fundal mai întunecat pentru celule */
 }
 
-/* Butoane și linkuri */
+/* Butoane și linkuri cu emoji-uri */
 a.bg-red-600 {
     text-decoration: none;
     transition: background-color 0.3s ease, transform 0.3s ease;
+    display: inline-flex; /* Aliniere cu emoji */
+    align-items: center;
+    gap: 0.5rem; /* Spațiu între text și emoji */
 }
 
 a.bg-red-600:hover {
     background-color: #b30000; /* Roșu mai închis */
     transform: scale(1.05); /* Mică mărire */
 }
+
+/* Emoji-uri specifice */
+#buy a:nth-child(1):after { content: " 🛠️"; } /* xExchange - cheie franceză și ciocan */
+#buy a:nth-child(2):after { content: " 💧"; } /* OneDex - picătură (fluiditate) */
+#buy a:nth-child(3):after { content: " 🔒"; } /* xPortal - lacăt (securitate) */
+#staking a:after { content: " 🌱"; } /* Staking - plantă (creștere) */
+#dao a:after { content: " 🗳️"; } /* DAO - buletin de vot (guvernare) */
+#community a:nth-child(1):after { content: " 🎟️"; } /* JEXchange - bilet (raffles) */
+#charts a:nth-child(1):after { content: " 📊"; } /* e-Compass - grafic */
+#charts a:nth-child(2):after { content: " 📈"; } /* DEXScreener - creștere */
+#charts a:nth-child(3):after { content: " 🔍"; } /* Explorer - lupă */
 
 /* Footer */
 footer {
@@ -135,5 +159,8 @@ footer a:hover {
     #get-roar-btn {
         font-size: 1rem;
         padding: 8px 16px;
+    }
+    #mobile-menu ul {
+        padding: 0.5rem 0; /* Reducere spațiere pe mobil */
     }
 }
