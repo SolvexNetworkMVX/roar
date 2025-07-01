@@ -6,8 +6,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (hamburger && mobileMenu && menuIcon) {
         hamburger.addEventListener("click", () => {
-            const isOpen = mobileMenu.style.maxHeight === "300px";
-            mobileMenu.style.maxHeight = isOpen ? "0" : "300px";
+            const isOpen = mobileMenu.style.maxHeight === "400px"; // Increased max-height
+            mobileMenu.style.maxHeight = isOpen ? "0" : "400px"; // Increased max-height
             menuIcon.className = isOpen ? "fas fa-bars text-red-500" : "fas fa-times text-red-500";
         });
 
@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const target = document.querySelector(anchor.getAttribute("href"));
             if (target) {
                 target.scrollIntoView({ behavior: "smooth" });
-                if (mobileMenu && mobileMenu.style.maxHeight === "300px") {
+                if (mobileMenu && mobileMenu.style.maxHeight === "400px") { // Updated max-height
                     mobileMenu.style.maxHeight = "0";
                     if (menuIcon) menuIcon.className = "fas fa-bars text-red-500";
                 }
@@ -37,14 +37,31 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // Handle "Get $ROAR" button for external link with compatibility check
+    // Handle "Get $ROAR" button for external link with mobile compatibility
     const getRoarBtn = document.getElementById("get-roar-btn");
     if (getRoarBtn) {
         getRoarBtn.addEventListener("click", (e) => {
-            e.preventDefault(); // Prevent default if needed
-            window.location.href = getRoarBtn.getAttribute("href"); // Direct navigation
-            console.log("Attempting to navigate to:", getRoarBtn.getAttribute("href"));
+            e.preventDefault(); // Prevent default behavior
+            if (window.location.hostname === "localhost" || window.location.protocol === "file:") {
+                // For local testing, open in new tab to simulate mobile behavior
+                window.open(getRoarBtn.getAttribute("href"), "_blank");
+            } else {
+                // For live environment, direct navigation
+                window.location.href = getRoarBtn.getAttribute("href");
+            }
+            console.log("Attempting to navigate to:", getRoarBtn.getAttribute("href"), "on", window.location.hostname);
         });
+
+        // Add touch event for mobile compatibility
+        getRoarBtn.addEventListener("touchend", (e) => {
+            e.preventDefault(); // Prevent default touch behavior
+            if (window.location.hostname === "localhost" || window.location.protocol === "file:") {
+                window.open(getRoarBtn.getAttribute("href"), "_blank");
+            } else {
+                window.location.href = getRoarBtn.getAttribute("href");
+            }
+            console.log("Touch navigation to:", getRoarBtn.getAttribute("href"), "on", window.location.hostname);
+        }, { passive: false });
     } else {
         console.error("Get $ROAR button not found");
     }
