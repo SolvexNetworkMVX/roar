@@ -59,7 +59,7 @@ nav a:hover {
     left: 0;
     width: 100%;
     background: #000000;
-    z-index: 50;
+    z-index: 60;
     padding: 1rem 0;
 }
 
@@ -122,4 +122,6 @@ footer a.text-red-500 {
 .animate__hero a {
     position: relative;
     z-index: 10; /* Above particles */
+    opacity: 1 !important; /* Override any hidden opacity */
+    display: block !important; /* Ensure visibility */
 }
