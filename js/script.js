@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // Handle "Get $ROAR" link with robust navigation logic
+    // Handle "Get $ROAR" link with enhanced navigation logic
     const getRoarLink = document.getElementById("get-roar-btn");
     if (getRoarLink) {
         console.log("Link 'Get $ROAR' găsit în DOM:", getRoarLink);
@@ -50,50 +50,50 @@ document.addEventListener("DOMContentLoaded", () => {
                 return;
             }
 
-            // Validăm URL-ul
-            if (!url.match(/^https?:\/\//)) {
+            // Validăm și navigăm
+            if (url.match(/^https?:\/\//)) {
+                console.log("Încerc să navighez la:", url);
+                try {
+                    // Permitem navigarea implicită a <a> să funcționeze dacă e posibil
+                    window.location.href = url;
+                    console.log("Navigare inițiată cu succes.");
+                } catch (error) {
+                    console.error("Eroare la navigare directă:", error);
+                    // Fallback: deschidem într-un tab nou
+                    const newWindow = window.open(url, "_blank");
+                    if (newWindow) {
+                        newWindow.focus();
+                        console.log("Fallback: Deschis în tab nou cu succes.");
+                    } else {
+                        console.warn("Pop-up blocat de browser. Verifică setările.");
+                    }
+                }
+            } else {
                 console.error("Eroare: URL invalid:", url);
-                return;
-            }
-
-            console.log("Încerc să navighez la:", url);
-
-            // Încercăm navigarea directă
-            try {
-                window.location.href = url; // Navigare simplă
-                console.log("Navigare inițiată cu succes.");
-            } catch (error) {
-                console.error("Eroare la navigare:", error);
-                // Fallback: deschidem într-un tab nou dacă direct nu merge
-                window.open(url, "_blank")?.focus();
-                console.log("Fallback: Deschis în tab nou.");
             }
         };
 
-        // Adăugăm evenimente
+        // Adăugăm evenimente doar pentru a monitoriza și sprijini, dar lăsăm <a> să funcționeze
         getRoarLink.addEventListener("click", (e) => {
             console.log("Click detectat pe 'Get $ROAR'");
-            e.preventDefault(); // Oprim navigarea implicită pentru a gestiona manual
             navigateToExchange();
         });
 
         getRoarLink.addEventListener("touchend", (e) => {
             console.log("Atingere detectată pe 'Get $ROAR'");
-            e.preventDefault(); // Prevenim comportamentul implicit pe mobil
             navigateToExchange();
         }, { passive: false });
     } else {
         console.error("Eroare: Link-ul 'Get $ROAR' nu a fost găsit în DOM!");
     }
 
-    // Hero Section Animation (păstrat intact)
+    // Restul codului (animații, particule, fetch API) rămâne intact
     gsap.registerPlugin(ScrollTrigger);
     gsap.from("#hero-logo", { y: -50, opacity: 0, duration: 1, delay: 0.2, ease: "power2.out" });
     gsap.from("#home h1", { y: -30, opacity: 0, duration: 1, delay: 0.4, ease: "power2.out" });
     gsap.from("#home p", { y: -20, opacity: 0, duration: 1, delay: 0.6, ease: "power2.out" });
     gsap.from("#get-roar-btn", { scale: 0.8, opacity: 0, duration: 1, delay: 0.8, ease: "power2.out" });
 
-    // Section Title Animations (păstrat intact)
     gsap.utils.toArray("section h2").forEach((title) => {
         gsap.from(title, {
             opacity: 0,
@@ -107,7 +107,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // Particle Effect for Hero Section (păstrat intact)
     const canvas = document.createElement("canvas");
     document.getElementById("particles").appendChild(canvas);
     canvas.width = window.innerWidth;
@@ -141,13 +140,11 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     animateParticles();
 
-    // Resize canvas on window resize (păstrat intact)
     window.addEventListener("resize", () => {
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
     });
 
-    // Logo Loading Check (păstrat intact)
     const navLogo = document.getElementById("nav-logo");
     const heroLogo = document.getElementById("hero-logo");
     [navLogo, heroLogo].forEach(logo => {
@@ -165,7 +162,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // Fetch real-time ROAR data from MultiversX API (păstrat intact)
     async function fetchTokenData() {
         try {
             const response = await fetch("https://api.multiversx.com/tokens/ROAR-e5185d");
