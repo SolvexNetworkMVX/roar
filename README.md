@@ -1,1 +1,1 @@
-Roar website written in HTML, CSS, Javascript, developed by Vlad Popescu. x: https://x.com/VPopescu_
+Roar website written in HTML, CSS, Javascript, developed by Vlad Popescu. X handle: @VPopescu_ -  (Vlad.egld)
