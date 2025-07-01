@@ -1,11 +1,19 @@
 // GSAP Animations
 gsap.registerPlugin(ScrollTrigger);
 
-// Hero section animation
+// Hero section animation with button fix
 gsap.from(".animate__hero img", { y: -50, opacity: 0, duration: 1, delay: 0.2 });
 gsap.from(".animate__hero h1", { y: -30, opacity: 0, duration: 1, delay: 0.4 });
 gsap.from(".animate__hero p", { y: -20, opacity: 0, duration: 1, delay: 0.6 });
-gsap.from(".animate__hero a", { scale: 0.8, opacity: 0, duration: 1, delay: 0.8 });
+gsap.from(".animate__hero a", { 
+    scale: 0.8, 
+    opacity: 0, 
+    duration: 1, 
+    delay: 0.8,
+    onComplete: () => {
+        document.querySelector(".animate__hero a").style.display = "block"; // Ensure button stays visible
+    }
+});
 
 // Scroll-triggered animations for sections
 gsap.utils.toArray(".animate__fadeIn").forEach((element) => {
@@ -34,7 +42,7 @@ gsap.utils.toArray(".animate__card").forEach((element, index) => {
     });
 });
 
-// Redesigned Hamburger Menu from Scratch
+// Redesigned Hamburger Menu with Optimization
 const hamburger = document.getElementById("hamburger");
 const mobileMenu = document.getElementById("mobile-menu");
 const menuIcon = hamburger.querySelector("i");
