@@ -66,13 +66,11 @@ nav a:hover {
     background: #000000;
     z-index: 60;
     padding: 1rem 0;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease;
+    transition: all 0.3s ease; /* Smooth transition */
 }
 
 #mobile-menu.active {
-    max-height: 300px; /* Adjust based on content height */
+    display: block;
 }
 
 /* Hamburger icon animation */
@@ -127,15 +125,10 @@ footer a.text-red-500 {
     transition: color 0.3s ease;
 }
 
-/* Ensure button and logo stay visible */
-#logo, #hero-logo {
-    position: relative;
-    z-index: 10; /* Above particles */
-}
-
+/* Ensure button stays visible */
 .animate__hero a {
     position: relative;
-    z-index: 20; /* Above particles and logos */
+    z-index: 10; /* Above particles */
     opacity: 1 !important; /* Override any hidden opacity */
     display: block !important; /* Ensure visibility */
 }
@@ -143,9 +136,9 @@ footer a.text-red-500 {
 /* Media query for button size on PC */
 @media (min-width: 768px) {
     .animate__hero a {
-        padding-left: 0.5rem; /* px-2 */
-        padding-right: 0.5rem; /* px-2 */
-        padding-top: 0.25rem; /* py-1 */
-        padding-bottom: 0.25rem; /* py-1 */
+        padding-left: 0.75rem; /* px-3 */
+        padding-right: 0.75rem; /* px-3 */
+        padding-top: 0.5rem; /* py-2 */
+        padding-bottom: 0.5rem; /* py-2 */
     }
 }
