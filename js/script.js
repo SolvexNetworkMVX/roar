@@ -3,25 +3,14 @@ document.addEventListener("DOMContentLoaded", () => {
     // GSAP Animations
     gsap.registerPlugin(ScrollTrigger);
 
-    // Hero section animation with button fix
-    gsap.from(".animate__hero img", { y: -50, opacity: 0, duration: 1, delay: 0.2, ease: "power2.out" });
-    gsap.from(".animate__hero h1", { y: -30, opacity: 0, duration: 1, delay: 0.4, ease: "power2.out" });
-    gsap.from(".animate__hero p", { y: -20, opacity: 0, duration: 1, delay: 0.6, ease: "power2.out" });
-    gsap.from("#getRoarBtn", { 
-        scale: 0.8, 
-        opacity: 0, 
-        duration: 1, 
-        delay: 0.8,
-        ease: "power2.out",
-        onComplete: () => {
-            const button = document.getElementById("getRoarBtn");
-            button.style.opacity = "1";
-            button.style.display = "block";
-        }
-    });
+    // Hero section animation (simplified for now)
+    gsap.from("#home img", { y: -50, opacity: 0, duration: 1, delay: 0.2, ease: "power2.out" });
+    gsap.from("#home h1", { y: -30, opacity: 0, duration: 1, delay: 0.4, ease: "power2.out" });
+    gsap.from("#home p", { y: -20, opacity: 0, duration: 1, delay: 0.6, ease: "power2.out" });
+    gsap.from("#home a", { scale: 0.8, opacity: 0, duration: 1, delay: 0.8, ease: "power2.out" });
 
-    // Scroll-triggered animations for sections
-    gsap.utils.toArray(".animate__fadeIn").forEach((element) => {
+    // Scroll-triggered animations for section titles
+    gsap.utils.toArray("section h2").forEach((element) => {
         gsap.from(element, {
             opacity: 0,
             y: 30,
@@ -30,21 +19,6 @@ document.addEventListener("DOMContentLoaded", () => {
             scrollTrigger: {
                 trigger: element,
                 start: "top 80%",
-            },
-        });
-    });
-
-    gsap.utils.toArray(".animate__card").forEach((element, index) => {
-        gsap.from(element, {
-            opacity: 0,
-            y: 20,
-            scale: 0.95,
-            duration: 0.8,
-            delay: index * 0.2,
-            ease: "power2.out",
-            scrollTrigger: {
-                trigger: element,
-                start: "top 90%",
             },
         });
     });
@@ -59,23 +33,19 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // Fixed Hamburger Menu with Optimization
+    // Hamburger Menu Toggle
     const hamburger = document.getElementById("hamburger");
     const mobileMenu = document.getElementById("mobile-menu");
     const menuIcon = hamburger?.querySelector("i");
 
     if (hamburger && mobileMenu && menuIcon) {
         hamburger.addEventListener("click", () => {
-            const isActive = hamburger.classList.contains("active");
+            const isActive = mobileMenu.style.maxHeight === "300px";
             if (isActive) {
-                hamburger.classList.remove("active");
-                mobileMenu.classList.remove("active");
                 mobileMenu.style.maxHeight = "0";
                 menuIcon.classList.remove("fa-times");
                 menuIcon.classList.add("fa-bars");
             } else {
-                hamburger.classList.add("active");
-                mobileMenu.classList.add("active");
                 mobileMenu.style.maxHeight = "300px";
                 menuIcon.classList.remove("fa-bars");
                 menuIcon.classList.add("fa-times");
