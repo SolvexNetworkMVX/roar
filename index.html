@@ -38,7 +38,7 @@
             </button>
         </div>
         <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-black w-full absolute top-16 left-0" style="display: none; max-height: 0; overflow: hidden; transition: max-height 0.3s ease;">
+        <div id="mobile-menu" class="hidden md:hidden bg-black w-full absolute top-16 left-0 z-50" style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease;">
             <ul class="flex flex-col items-center py-3 space-y-3">
                 <li><a href="#home" class="hover:text-red-500 transition text-lg border-b border-red-500 pb-1">Home</a></li>
                 <li><a href="#about" class="hover:text-red-500 transition text-lg border-b border-red-500 pb-1">About</a></li>
@@ -61,7 +61,7 @@
             <p class="text-xl sm:text-2xl leading-relaxed mb-6 max-w-3xl mx-auto">
                 Your investment, Our commit to your success. Our goal: make invest simple and profitable. Powered by ROARHighSpeX.
             </p>
-            <a href="#buy" class="bg-red-600 text-white px-3 py-2 rounded-full font-semibold text-lg mt-6 hover:scale-105 hover:shadow-lg hover:shadow-red-500/50 transition" style="opacity: 1; display: block; z-index: 20;">Get $ROAR</a>
+            <a href="#buy" class="bg-red-600 text-white px-6 py-2 rounded-full font-semibold text-lg mt-6 hover:scale-105 hover:shadow-lg hover:shadow-red-500/50 transition transform-gpu" id="getRoarBtn">Get $ROAR</a>
         </div>
         <div class="absolute inset-0" id="particles"></div>
     </section>
@@ -74,15 +74,15 @@
         <div class="container mx-auto px-4 text-center">
             <h2 class="text-4xl font-bold font-poppins text-red-500 mb-10 animate__fadeIn">About ROAR</h2>
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-4xl mx-auto">
-                <div class="bg-gray-900 p-6 rounded-lg hover:shadow-lg hover:shadow-red-500/50 transition">
+                <div class="bg-gray-900 p-6 rounded-lg hover:shadow-lg hover:shadow-red-500/50 transition animate__card">
                     <h3 class="text-xl font-semibold font-poppins text-red-500 mb-2">Scarcity</h3>
                     <p class="text-lg leading-relaxed">With a fixed supply and no decimals, ROAR is inherently scarce, offering security and trust over-time.</p>
                 </div>
-                <div class="bg-gray-900 p-6 rounded-lg hover:shadow-lg hover:shadow-red-500/50 transition">
+                <div class="bg-gray-900 p-6 rounded-lg hover:shadow-lg hover:shadow-red-500/50 transition animate__card">
                     <h3 class="text-xl font-semibold font-poppins text-red-500 mb-2">Immutability</h3>
                     <p class="text-lg leading-relaxed">Built on the MultiversX blockchain, ROAR data is available to verify for anyone, anytime.</p>
                 </div>
-                <div class="bg-gray-900 p-6 rounded-lg hover:shadow-lg hover:shadow-red-500/50 transition">
+                <div class="bg-gray-900 p-6 rounded-lg hover:shadow-lg hover:shadow-red-500/50 transition animate__card">
                     <h3 class="text-xl font-semibold font-poppins text-red-500 mb-2">Community-Driven</h3>
                     <p class="text-lg leading-relaxed">ROAR is based on organic growth, where individuals from the community move it's price and overall direction.</p>
                 </div>
@@ -108,19 +108,19 @@
         <div class="container mx-auto px-4 text-center">
             <h2 class="text-4xl font-bold font-poppins text-red-500 mb-10 animate__fadeIn">Tokenomics</h2>
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-4xl mx-auto">
-                <div class="bg-gray-900 p-6 rounded-lg hover:shadow-lg hover:shadow-red-500/50 transition">
+                <div class="bg-gray-900 p-6 rounded-lg hover:shadow-lg hover:shadow-red-500/50 transition animate__card">
                     <h3 class="text-xl font-semibold font-poppins text-red-500 mb-2">Token Details</h3>
                     <p class="text-lg leading-relaxed">ID: <span id="ticker">ROAR-e5185d</span></p>
                     <p class="text-lg leading-relaxed">Decimals: <span id="decimals">10</span></p>
                     <p class="text-lg leading-relaxed">Total Supply: <span id="total-supply">1,847,358</span> ROAR</p>
                     <p class="text-lg leading-relaxed">Circulating Supply: <span id="circulating-supply">1,365,532</span> ROAR</p>
                 </div>
-                <div class="bg-gray-900 p-6 rounded-lg hover:shadow-lg hover:shadow-red-500/50 transition">
+                <div class="bg-gray-900 p-6 rounded-lg hover:shadow-lg hover:shadow-red-500/50 transition animate__card">
                     <h3 class="text-xl font-semibold font-poppins text-red-500 mb-2">Burn & Distribution</h3>
                     <p class="text-lg leading-relaxed">Burnt Supply: <span id="burnt-supply">3,748,643,897.427984</span> ROAR</p>
                     <p class="text-lg leading-relaxed">Initial Minted: <span id="initial-minted">22,222,220</span> ROAR</p>
                 </div>
-                <div class="bg-gray-900 p-6 rounded-lg hover:shadow-lg hover:shadow-red-500/50 transition">
+                <div class="bg-gray-900 p-6 rounded-lg hover:shadow-lg hover:shadow-red-500/50 transition animate__card">
                     <h3 class="text-xl font-semibold font-poppins text-red-500 mb-2">Community Stats</h3>
                     <p class="text-lg leading-relaxed">Holders: <span id="holders">1,554</span></p>
                     <p class="text-lg leading-relaxed">Transactions: <span id="transactions">7,415</span></p>
@@ -137,36 +137,36 @@
         <div class="container mx-auto px-4 text-center">
             <h2 class="text-4xl font-bold font-poppins text-red-500 mb-10 animate__fadeIn">ROAR Dashboard</h2>
             <div class="grid grid-cols-1 md:grid-cols-4 gap-6 max-w-6xl mx-auto">
-                <div class="bg-gray-900 p-6 rounded-lg hover:shadow-lg hover:shadow-red-500/50 transition">
+                <div class="bg-gray-900 p-6 rounded-lg hover:shadow-lg hover:shadow-red-500/50 transition animate__card">
                     <h3 class="text-xl font-semibold font-poppins text-red-500 mb-2">Price</h3>
                     <p class="text-2xl animate__pulse"><span id="roar-price">0.008854</span> USD</p>
                 </div>
-                <div class="bg-gray-900 p-6 rounded-lg hover:shadow-lg hover:shadow-red-500/50 transition">
+                <div class="bg-gray-900 p-6 rounded-lg hover:shadow-lg hover:shadow-red-500/50 transition animate__card">
                     <h3 class="text-xl font-semibold font-poppins text-red-500 mb-2">Market Cap</h3>
                     <p class="text-2xl animate__pulse"><span id="market-cap">12,090.49</span> USD</p>
                 </div>
-                <div class="bg-gray-900 p-6 rounded-lg hover:shadow-lg hover:shadow-red-500/50 transition">
+                <div class="bg-gray-900 p-6 rounded-lg hover:shadow-lg hover:shadow-red-500/50 transition animate__card">
                     <h3 class="text-xl font-semibold font-poppins text-red-500 mb-2">24H Volume</h3>
                     <p class="text-2xl animate__pulse"><span id="volume">12.66</span> USD</p>
                 </div>
-                <div class="bg-gray-900 p-6 rounded-lg hover:shadow-lg hover:shadow-red-500/50 transition">
+                <div class="bg-gray-900 p-6 rounded-lg hover:shadow-lg hover:shadow-red-500/50 transition animate__card">
                     <h3 class="text-xl font-semibold font-poppins text-red-500 mb-2">Liquidity</h3>
                     <p class="text-2xl animate__pulse"><span id="liquidity">667.54</span> USD</p>
                 </div>
                 <!-- Second Row -->
-                <div class="bg-gray-900 p-6 rounded-lg hover:shadow-lg hover:shadow-red-500/50 transition">
+                <div class="bg-gray-900 p-6 rounded-lg hover:shadow-lg hover:shadow-red-500/50 transition animate__card">
                     <h3 class="text-xl font-semibold font-poppins text-red-500 mb-2">Holders</h3>
                     <p class="text-2xl animate__pulse"><span id="dashboard-holders">1,554</span></p>
                 </div>
-                <div class="bg-gray-900 p-6 rounded-lg hover:shadow-lg hover:shadow-red-500/50 transition">
+                <div class="bg-gray-900 p-6 rounded-lg hover:shadow-lg hover:shadow-red-500/50 transition animate__card">
                     <h3 class="text-xl font-semibold font-poppins text-red-500 mb-2">Transactions</h3>
                     <p class="text-2xl animate__pulse"><span id="dashboard-transactions">7,415</span></p>
                 </div>
-                <div class="bg-gray-900 p-6 rounded-lg hover:shadow-lg hover:shadow-red-500/50 transition">
+                <div class="bg-gray-900 p-6 rounded-lg hover:shadow-lg hover:shadow-red-500/50 transition animate__card">
                     <h3 class="text-xl font-semibold font-poppins text-red-500 mb-2">Transfers</h3>
                     <p class="text-2xl animate__pulse"><span id="transfers">75,151</span></p>
                 </div>
-                <div class="bg-gray-900 p-6 rounded-lg hover:shadow-lg hover:shadow-red-500/50 transition">
+                <div class="bg-gray-900 p-6 rounded-lg hover:shadow-lg hover:shadow-red-500/50 transition animate__card">
                     <h3 class="text-xl font-semibold font-poppins text-red-500 mb-2">Trade Count</h3>
                     <p class="text-2xl animate__pulse"><span id="trade-count">9,731</span></p>
                 </div>
