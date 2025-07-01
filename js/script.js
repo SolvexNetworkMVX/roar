@@ -50,13 +50,14 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // Smooth scrolling for navbar links
-    document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+    // Smooth scrolling for navbar links and button
+    document.querySelectorAll('nav a[href^="#"], #get-roar-btn').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
-            });
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth' });
+            }
         });
     });
 
@@ -130,21 +131,34 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Check Logo Display
     const logo = document.getElementById("logo");
-    if (!logo.src || logo.src.includes("undefined")) {
-        console.error("Logo not found or path incorrect. Check 'assets/roar2.png' exists.");
-        logo.style.display = "none";
-        logo.nextElementSibling.style.display = "block";
-    } else {
-        logo.onload = () => console.log("Logo loaded successfully.");
-        logo.onerror = () => console.error("Failed to load logo. Verify file path 'assets/roar2.png'.");
+    const heroLogo = document.getElementById("hero-logo");
+    const logoFallback = document.getElementById("logo-fallback");
+    const heroLogoFallback = document.getElementById("hero-logo-fallback");
+
+    function checkImage(img, fallback) {
+        if (!img.src || img.src.includes("undefined") || img.complete && img.naturalHeight === 0) {
+            console.error("Image not found or failed to load. Check file:", img.src);
+            img.style.display = "none";
+            fallback.style.display = "inline";
+        } else {
+            img.onload = () => console.log("Image loaded successfully:", img.src);
+            img.onerror = () => {
+                console.error("Failed to load image:", img.src);
+                img.style.display = "none";
+                fallback.style.display = "inline";
+            };
+        }
     }
+
+    checkImage(logo, logoFallback);
+    checkImage(heroLogo, heroLogoFallback);
 
     // Fetch real-time ROAR data from MultiversX API
     async function fetchTokenData() {
         try {
             const response = await fetch("https://api.multiversx.com/tokens/ROAR-e5185d");
             const tokenData = await response.json();
-            console.log("API Response:", tokenData); // Debug API response
+            console.log("API Response:", tokenData);
 
             // Tokenomics Section
             document.getElementById("ticker").textContent = tokenData.identifier || "ROAR-e5185d";
@@ -173,7 +187,6 @@ document.addEventListener("DOMContentLoaded", () => {
             document.getElementById("can-local-mint").textContent = tokenData.canLocalMint ? "✔" : "❌";
         } catch (error) {
             console.error("Error fetching token data:", error);
-            // Fallback values already set in HTML
         }
     }
 
