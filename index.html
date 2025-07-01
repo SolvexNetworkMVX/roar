@@ -16,10 +16,9 @@
     <nav class="fixed top-0 w-full bg-black bg-opacity-90 z-50">
         <div class="container mx-auto px-4 py-6 flex justify-between items-center">
             <div class="flex items-center">
-                <img src="roar2.png" alt="ROAR Logo" class="h-12 sm:h-16" id="logo">
+                <img src="roar2.png" alt="ROAR Logo" class="h-12 sm:h-16" id="nav-logo">
                 <span class="text-2xl font-bold font-poppins ml-2 text-red-500">ROAR</span>
             </div>
-            <!-- Desktop Menu -->
             <ul class="hidden md:flex space-x-6">
                 <li><a href="#home" class="text-white hover:text-red-500">Home</a></li>
                 <li><a href="#about" class="text-white hover:text-red-500">About</a></li>
@@ -31,12 +30,10 @@
                 <li><a href="#community" class="text-white hover:text-red-500">Community</a></li>
                 <li><a href="#charts" class="text-white hover:text-red-500">Charts</a></li>
             </ul>
-            <!-- Hamburger Icon -->
-            <button class="md:hidden text-2xl focus:outline-none" id="hamburger">
+            <button id="hamburger" class="md:hidden text-2xl focus:outline-none">
                 <i class="fas fa-bars text-red-500"></i>
             </button>
         </div>
-        <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden md:hidden bg-black w-full absolute top-16 left-0 overflow-hidden" style="max-height: 0; transition: max-height 0.3s ease;">
             <ul class="flex flex-col items-center py-3 space-y-3">
                 <li><a href="#home" class="text-white text-lg border-b border-red-500 pb-1 hover:text-red-500">Home</a></li>
@@ -55,12 +52,12 @@
     <!-- Hero Section -->
     <section id="home" class="min-h-screen flex items-center justify-center bg-gradient-to-b from-black to-red-900">
         <div class="container mx-auto px-4 text-center">
-            <img src="assets/roar2.png" alt="ROAR Logo" class="h-24 sm:h-32 mx-auto mb-6" id="logo">
+            <img src="roar2.png" alt="ROAR Logo" class="h-24 sm:h-32 mx-auto mb-6" id="hero-logo">
             <h1 class="text-5xl sm:text-6xl font-bold font-poppins text-red-500 mb-4">ROAR</h1>
             <p class="text-xl sm:text-2xl leading-relaxed mb-6 max-w-3xl mx-auto">
                 Your investment, Our commit to your success. Our goal: make invest simple and profitable. Powered by ROARHighSpeX.
             </p>
-            <a href="#buy" class="bg-red-600 text-white px-6 py-3 rounded-full font-semibold text-lg mt-6 hover:text-white">Get $ROAR</a>
+            <a href="#buy" class="bg-red-600 text-white px-6 py-3 rounded-full font-semibold text-lg mt-6" id="get-roar-btn">Get $ROAR</a>
         </div>
         <div class="absolute inset-0" id="particles"></div>
     </section>
@@ -152,7 +149,6 @@
                     <h3 class="text-xl font-semibold font-poppins text-red-500 mb-2">Liquidity</h3>
                     <p class="text-2xl"><span id="liquidity">667.54</span> USD</p>
                 </div>
-                <!-- Second Row -->
                 <div class="bg-gray-900 p-6 rounded-lg">
                     <h3 class="text-xl font-semibold font-poppins text-red-500 mb-2">Holders</h3>
                     <p class="text-2xl"><span id="dashboard-holders">1,554</span></p>
@@ -253,7 +249,6 @@
                 <a href="https://dexscreener.com/multiversx/erd1qqqqqqqqqqqqqpgqqz6vp9y50ep867vnr296mqf3dduh6guvmvlsu3sujc-roarwegld-ebe52f" class="bg-red-600 text-white px-6 py-3 rounded-full font-semibold text-lg">DEXScreener</a>
                 <a href="https://explorer.multiversx.com/tokens/ROAR-e5185d" class="bg-red-600 text-white px-6 py-3 rounded-full font-semibold text-lg">Explorer</a>
             </div>
-            <!-- DEXScreener Chart Widget (Only Chart, 1D Preselected) -->
             <div class="w-full max-w-4xl mx-auto">
                 <iframe src="https://dexscreener.com/multiversx/erd1qqqqqqqqqqqqqpgqqz6vp9y50ep867vnr296mqf3dduh6guvmvlsu3sujc-roarwegld-ebe52f?embed=chart×pan=1d" frameborder="0" scrolling="no" style="width: 100%; height: 400px; border: none;" class="rounded-lg"></iframe>
             </div>
