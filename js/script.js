@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-    // Hamburger Menu Toggle
+    // Hamburger Menu Toggle (păstrat intact)
     const hamburger = document.getElementById("hamburger");
     const mobileMenu = document.getElementById("mobile-menu");
     const menuIcon = hamburger?.querySelector("i");
@@ -11,7 +11,6 @@ document.addEventListener("DOMContentLoaded", () => {
             menuIcon.className = isOpen ? "fas fa-bars text-red-500" : "fas fa-times text-red-500";
         });
 
-        // Close menu on link click
         mobileMenu.querySelectorAll("a").forEach(link => {
             link.addEventListener("click", () => {
                 mobileMenu.style.maxHeight = "0";
@@ -22,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
         console.error("Hamburger menu elements not found:", { hamburger, mobileMenu, menuIcon });
     }
 
-    // Smooth scrolling for all navigation links
+    // Smooth scrolling for all navigation links (păstrat intact)
     document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
         anchor.addEventListener("click", (e) => {
             e.preventDefault();
@@ -37,63 +36,64 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // Handle "Get $ROAR" button with robust navigation logic
-    const getRoarBtn = document.getElementById("get-roar-btn");
-    if (getRoarBtn) {
+    // Handle "Get $ROAR" link with robust navigation logic
+    const getRoarLink = document.getElementById("get-roar-btn");
+    if (getRoarLink) {
+        console.log("Link 'Get $ROAR' găsit în DOM:", getRoarLink);
+
         const navigateToExchange = () => {
-            const url = getRoarBtn.getAttribute("href");
+            const url = getRoarLink.getAttribute("href");
+            console.log("URL extras:", url);
+
             if (!url) {
-                console.error("Error: No href attribute found on Get $ROAR button");
+                console.error("Eroare: Nu există atribut 'href' pe link-ul 'Get $ROAR'!");
                 return;
             }
 
-            // Validate URL
-            const isValidUrl = /^(https?:\/\/).+$/.test(url);
-            if (!isValidUrl) {
-                console.error("Error: Invalid URL:", url);
+            // Validăm URL-ul
+            if (!url.match(/^https?:\/\//)) {
+                console.error("Eroare: URL invalid:", url);
                 return;
             }
 
-            console.log("Attempting navigation to:", url, "on", window.location.hostname);
+            console.log("Încerc să navighez la:", url);
 
-            // Check if pop-up is blocked
-            let newWindow;
+            // Încercăm navigarea directă
             try {
-                newWindow = window.open(url, "_blank");
-                if (newWindow === null || typeof newWindow === "undefined") {
-                    console.warn("Pop-up blocked by browser. Falling back to direct navigation.");
-                    window.location.assign(url); // Fallback to direct navigation
-                } else {
-                    newWindow.focus();
-                }
+                window.location.href = url; // Navigare simplă
+                console.log("Navigare inițiată cu succes.");
             } catch (error) {
-                console.error("Navigation error:", error);
-                window.location.assign(url); // Final fallback
+                console.error("Eroare la navigare:", error);
+                // Fallback: deschidem într-un tab nou dacă direct nu merge
+                window.open(url, "_blank")?.focus();
+                console.log("Fallback: Deschis în tab nou.");
             }
         };
 
-        // Unified event listener for click and touch
-        getRoarBtn.addEventListener("click", (e) => {
-            e.preventDefault();
+        // Adăugăm evenimente
+        getRoarLink.addEventListener("click", (e) => {
+            console.log("Click detectat pe 'Get $ROAR'");
+            e.preventDefault(); // Oprim navigarea implicită pentru a gestiona manual
             navigateToExchange();
         });
 
-        getRoarBtn.addEventListener("touchend", (e) => {
-            e.preventDefault();
+        getRoarLink.addEventListener("touchend", (e) => {
+            console.log("Atingere detectată pe 'Get $ROAR'");
+            e.preventDefault(); // Prevenim comportamentul implicit pe mobil
             navigateToExchange();
         }, { passive: false });
     } else {
-        console.error("Get $ROAR button not found");
+        console.error("Eroare: Link-ul 'Get $ROAR' nu a fost găsit în DOM!");
     }
 
-    // Hero Section Animation
+    // Hero Section Animation (păstrat intact)
     gsap.registerPlugin(ScrollTrigger);
     gsap.from("#hero-logo", { y: -50, opacity: 0, duration: 1, delay: 0.2, ease: "power2.out" });
     gsap.from("#home h1", { y: -30, opacity: 0, duration: 1, delay: 0.4, ease: "power2.out" });
     gsap.from("#home p", { y: -20, opacity: 0, duration: 1, delay: 0.6, ease: "power2.out" });
     gsap.from("#get-roar-btn", { scale: 0.8, opacity: 0, duration: 1, delay: 0.8, ease: "power2.out" });
 
-    // Section Title Animations
+    // Section Title Animations (păstrat intact)
     gsap.utils.toArray("section h2").forEach((title) => {
         gsap.from(title, {
             opacity: 0,
@@ -107,7 +107,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // Particle Effect for Hero Section
+    // Particle Effect for Hero Section (păstrat intact)
     const canvas = document.createElement("canvas");
     document.getElementById("particles").appendChild(canvas);
     canvas.width = window.innerWidth;
@@ -141,13 +141,13 @@ document.addEventListener("DOMContentLoaded", () => {
     }
     animateParticles();
 
-    // Resize canvas on window resize
+    // Resize canvas on window resize (păstrat intact)
     window.addEventListener("resize", () => {
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
     });
 
-    // Logo Loading Check
+    // Logo Loading Check (păstrat intact)
     const navLogo = document.getElementById("nav-logo");
     const heroLogo = document.getElementById("hero-logo");
     [navLogo, heroLogo].forEach(logo => {
@@ -165,20 +165,18 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // Fetch real-time ROAR data from MultiversX API
+    // Fetch real-time ROAR data from MultiversX API (păstrat intact)
     async function fetchTokenData() {
         try {
             const response = await fetch("https://api.multiversx.com/tokens/ROAR-e5185d");
             const tokenData = await response.json();
             console.log("API Response:", tokenData);
 
-            // Tokenomics Section
             document.getElementById("ticker").textContent = tokenData.identifier || "ROAR-e5185d";
             document.getElementById("decimals").textContent = tokenData.decimals || 10;
             document.getElementById("total-supply").textContent = parseInt(tokenData.supply || "1847358").toLocaleString();
             document.getElementById("circulating-supply").textContent = parseInt(tokenData.circulatingSupply || "1365532").toLocaleString();
 
-            // Dashboard Section
             document.getElementById("roar-price").textContent = parseFloat(tokenData.price || "0.008854").toFixed(6);
             document.getElementById("market-cap").textContent = parseFloat(tokenData.marketCap || "12090.49").toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
             document.getElementById("volume").textContent = parseFloat(tokenData.totalVolume24h || "12.66").toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
@@ -188,7 +186,6 @@ document.addEventListener("DOMContentLoaded", () => {
             document.getElementById("transfers").textContent = tokenData.transfers || "75151";
             document.getElementById("trade-count").textContent = tokenData.tradesCount || "9731";
 
-            // Token Properties under About
             document.getElementById("can-pause").textContent = tokenData.canPause ? "✔" : "❌";
             document.getElementById("can-freeze").textContent = tokenData.canFreeze ? "✔" : "❌";
             document.getElementById("can-wipe").textContent = tokenData.canWipe ? "✔" : "❌";
@@ -199,5 +196,5 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     fetchTokenData();
-    setInterval(fetchTokenData, 60000); // Update every minute
+    setInterval(fetchTokenData, 60000);
 });
