@@ -1,270 +1,270 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
- <meta charset="UTF-8">
- <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
- <title>ROAR - Real Organization Automatic Rewards</title>
- <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
- <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@300;400&display=swap">
- <link rel="icon" type="image/png" href="roar2.png">
- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollTrigger.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>ROAR - Real Organization Automatic Rewards</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@300;400&display=swap">
+    <link rel="icon" type="image/png" href="roar2.png">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollTrigger.min.js"></script>
 </head>
 <body class="bg-black text-white font-inter">
- <!-- Navigation -->
- <nav class="fixed top-0 w-full bg-black bg-opacity-90 z-50">
- <div class="container mx-auto px-4 py-6 flex justify-between items-center">
- <div class="flex items-center">
- <img src="roar2.png" alt="ROAR Logo" class="h-12 sm:h-16" id="nav-logo">
- <span class="text-2xl font-bold font-poppins ml-2 text-red-500">ROAR</span>
- </div>
- <ul class="hidden md:flex space-x-6">
- <li><a href="#home" class="text-white hover:text-red-500">Home</a></li>
- <li><a href="#about" class="text-white hover:text-red-500">About</a></li>
- <li><a href="#tokenomics" class="text-white hover:text-red-500">Tokenomics</a></li>
- <li><a href="#dashboard" class="text-white hover:text-red-500">Dashboard</a></li>
- <li><a href="#buy" class="text-white hover:text-red-500">How to Buy</a></li>
- <li><a href="#staking" class="text-white hover:text-red-500">Staking</a></li>
- <li><a href="#dao" class="text-white hover:text-red-500">DAO</a></li>
- <li><a href="#community" class="text-white hover:text-red-500">Community</a></li>
- <li><a href="#charts" class="text-white hover:text-red-500">Charts</a></li>
- </ul>
- <button id="hamburger" class="md:hidden text-2xl focus:outline-none">
- <i class="fas fa-bars text-red-500"></i>
- </button>
- </div>
- <div id="mobile-menu" class="md:hidden bg-black w-full absolute top-16 left-0 overflow-hidden" style="max-height: 0; transition: max-height 0.3s ease;">
- <ul class="flex flex-col items-center py-3 space-y-3">
- <li><a href="#home" class="text-white text-lg border-b border-red-500 pb-1 hover:text-red-500">Home</a></li>
- <li><a href="#about" class="text-white text-lg border-b border-red-500 pb-1 hover:text-red-500">About</a></li>
- <li><a href="#tokenomics" class="text-white text-lg border-b border-red-500 pb-1 hover:text-red-500">Tokenomics</a></li>
- <li><a href="#dashboard" class="text-white text-lg border-b border-red-500 pb-1 hover:text-red-500">Dashboard</a></li>
- <li><a href="#buy" class="text-white text-lg border-b border-red-500 pb-1 hover:text-red-500">How to Buy</a></li>
- <li><a href="#staking" class="text-white text-lg border-b border-red-500 pb-1 hover:text-red-500">Staking</a></li>
- <li><a href="#dao" class="text-white text-lg border-b border-red-500 pb-1 hover:text-red-500">DAO</a></li>
- <li><a href="#community" class="text-white text-lg border-b border-red-500 pb-1 hover:text-red-500">Join the Lion Squad</a></li>
- <li><a href="#charts" class="text-white text-lg border-b border-red-500 pb-1 hover:text-red-500">Charts</a></li>
- </ul>
- </div>
- </nav>
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-black bg-opacity-90 z-50">
+        <div class="container mx-auto px-4 py-6 flex justify-between items-center">
+            <div class="flex items-center">
+                <img src="roar2.png" alt="ROAR Logo" class="h-12 sm:h-16" id="nav-logo">
+                <span class="text-2xl font-bold font-poppins ml-2 text-red-500">ROAR</span>
+            </div>
+            <ul class="hidden md:flex space-x-6">
+                <li><a href="#home" class="text-white hover:text-red-500">Home</a></li>
+                <li><a href="#about" class="text-white hover:text-red-500">About</a></li>
+                <li><a href="#tokenomics" class="text-white hover:text-red-500">Tokenomics</a></li>
+                <li><a href="#dashboard" class="text-white hover:text-red-500">Dashboard</a></li>
+                <li><a href="#buy" class="text-white hover:text-red-500">How to Buy</a></li>
+                <li><a href="#staking" class="text-white hover:text-red-500">Staking</a></li>
+                <li><a href="#dao" class="text-white hover:text-red-500">DAO</a></li>
+                <li><a href="#community" class="text-white hover:text-red-500">Community</a></li>
+                <li><a href="#charts" class="text-white hover:text-red-500">Charts</a></li>
+            </ul>
+            <button id="hamburger" class="md:hidden text-2xl focus:outline-none">
+                <i class="fas fa-bars text-red-500"></i>
+            </button>
+        </div>
+        <div id="mobile-menu" class="md:hidden bg-black w-full absolute top-16 left-0 overflow-hidden" style="max-height: 0; transition: max-height 0.3s ease;">
+            <ul class="flex flex-col items-center py-3 space-y-3">
+                <li><a href="#home" class="text-white text-lg border-b border-red-500 pb-1 hover:text-red-500">Home</a></li>
+                <li><a href="#about" class="text-white text-lg border-b border-red-500 pb-1 hover:text-red-500">About</a></li>
+                <li><a href="#tokenomics" class="text-white text-lg border-b border-red-500 pb-1 hover:text-red-500">Tokenomics</a></li>
+                <li><a href="#dashboard" class="text-white text-lg border-b border-red-500 pb-1 hover:text-red-500">Dashboard</a></li>
+                <li><a href="#buy" class="text-white text-lg border-b border-red-500 pb-1 hover:text-red-500">How to Buy</a></li>
+                <li><a href="#staking" class="text-white text-lg border-b border-red-500 pb-1 hover:text-red-500">Staking</a></li>
+                <li><a href="#dao" class="text-white text-lg border-b border-red-500 pb-1 hover:text-red-500">DAO</a></li>
+                <li><a href="#community" class="text-white text-lg border-b border-red-500 pb-1 hover:text-red-500">Join the Lion Squad</a></li>
+                <li><a href="#charts" class="text-white text-lg border-b border-red-500 pb-1 hover:text-red-500">Charts</a></li>
+            </ul>
+        </div>
+    </nav>
 
- <!-- Hero Section -->
- <section id="home" class="min-h-screen flex items-center justify-center bg-gradient-to-b from-black to-red-900">
- <div class="container mx-auto px-4 text-center">
- <img src="roar1.png" alt="ROAR Hero Logo" class="h-48 sm:h-64 mx-auto mb-6" id="hero-logo">
- <h1 class="text-5xl sm:text-6xl font-bold font-poppins text-red-500 mb-4">ROAR</h1>
- <p class="text-xl sm:text-2xl leading-relaxed mb-6 max-w-3xl mx-auto">
- Your investment, Our commit to your success. Our goal: make invest simple and profitable. Powered by ROARHighSpeX.
- </p>
- <a href="#buy" class="bg-red-600 text-white px-6 py-3 rounded-full font-semibold text-lg mt-6" id="get-roar-btn">Get $ROAR</a>
- </div>
- <div class="absolute inset-0" id="particles"></div>
- </section>
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center bg-gradient-to-b from-black to-red-900">
+        <div class="container mx-auto px-4 text-center">
+            <img src="roar1.png" alt="ROAR Hero Logo" class="h-48 sm:h-64 mx-auto mb-6" id="hero-logo">
+            <h1 class="text-5xl sm:text-6xl font-bold font-poppins text-red-500 mb-4">ROAR</h1>
+            <p class="text-xl sm:text-2xl leading-relaxed mb-6 max-w-3xl mx-auto">
+                Your investment, Our commit to your success. Our goal: make invest simple and profitable. Powered by ROARHighSpeX.
+            </p>
+            <a href="#buy" class="bg-red-600 text-white px-6 py-3 rounded-full font-semibold text-lg mt-6" id="get-roar-btn">Get $ROAR</a>
+        </div>
+        <div class="absolute inset-0" id="particles"></div>
+    </section>
 
- <!-- Gradient Divider -->
- <div class="h-1 bg-gradient-to-r from-red-600 to-red-900"></div>
+    <!-- Gradient Divider -->
+    <div class="h-1 bg-gradient-to-r from-red-600 to-red-900"></div>
 
- <!-- About Section -->
- <section id="about" class="py-40">
- <div class="container mx-auto px-4 text-center">
- <h2 class="text-4xl font-bold font-poppins text-red-500 mb-10">About ROAR</h2>
- <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-4xl mx-auto">
- <div class="bg-gray-900 p-6 rounded-lg">
- <h3 class="text-xl font-semibold font-poppins text-red-500 mb-2">Scarcity</h3>
- <p class="text-lg leading-relaxed">With a fixed supply and no decimals, ROAR is inherently scarce, offering security and trust over-time.</p>
- </div>
- <div class="bg-gray-900 p-6 rounded-lg">
- <h3 class="text-xl font-semibold font-poppins text-red-500 mb-2">Immutability</h3>
- <p class="text-lg leading-relaxed">Built on the MultiversX blockchain, ROAR data is available to verify for anyone, anytime.</p>
- </div>
- <div class="bg-gray-900 p-6 rounded-lg">
- <h3 class="text-xl font-semibold font-poppins text-red-500 mb-2">Community-Driven</h3>
- <p class="text-lg leading-relaxed">ROAR is based on organic growth, where individuals from the community move it's price and overall direction.</p>
- </div>
- </div>
- <p class="text-lg sm:text-xl leading-relaxed mt-6 max-w-3xl mx-auto">
- Launched on xExchange.com on 23 March 2024 with a supply of 22,222,220 tokens, $ROAR established a place in the top-tier MVX ESDT's and has a strong community of long term holders. R.O.A.R - Real Organization Automatic Rewards. Pretty creative, no?
- </p>
- <p class="text-lg sm:text-xl font-bold mt-6">Properties:</p>
- <div class="flex justify-center mt-2 space-x-6 text-lg sm:text-xl">
- <p><strong>Pause:</strong> <span id="can-pause" class="text-red-500">❌</span></p>
- <p><strong>Freeze:</strong> <span id="can-freeze" class="text-red-500">❌</span></p>
- <p><strong>Wipe:</strong> <span id="can-wipe" class="text-red-500">❌</span></p>
- <p><strong>Local Mint:</strong> <span id="can-local-mint" class="text-red-500">❌</span></p>
- </div>
- </div>
- </section>
+    <!-- About Section -->
+    <section id="about" class="py-40">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl font-bold font-poppins text-red-500 mb-10">About ROAR</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-4xl mx-auto">
+                <div class="bg-gray-900 p-6 rounded-lg">
+                    <h3 class="text-xl font-semibold font-poppins text-red-500 mb-2">Scarcity</h3>
+                    <p class="text-lg leading-relaxed">With a fixed supply and no decimals, ROAR is inherently scarce, offering security and trust over-time.</p>
+                </div>
+                <div class="bg-gray-900 p-6 rounded-lg">
+                    <h3 class="text-xl font-semibold font-poppins text-red-500 mb-2">Immutability</h3>
+                    <p class="text-lg leading-relaxed">Built on the MultiversX blockchain, ROAR data is available to verify for anyone, anytime.</p>
+                </div>
+                <div class="bg-gray-900 p-6 rounded-lg">
+                    <h3 class="text-xl font-semibold font-poppins text-red-500 mb-2">Community-Driven</h3>
+                    <p class="text-lg leading-relaxed">ROAR is based on organic growth, where individuals from the community move it's price and overall direction.</p>
+                </div>
+            </div>
+            <p class="text-lg sm:text-xl leading-relaxed mt-6 max-w-3xl mx-auto">
+                Launched on xExchange.com on 23 March 2024 with a supply of 22,222,220 tokens, $ROAR established a place in the top-tier MVX ESDT's and has a strong community of long term holders. R.O.A.R - Real Organization Automatic Rewards. Pretty creative, no?
+            </p>
+            <p class="text-lg sm:text-xl font-bold mt-6">Properties:</p>
+            <div class="flex justify-center mt-2 space-x-6 text-lg sm:text-xl">
+                <p><strong>Pause:</strong> <span id="can-pause" class="text-red-500">❌</span></p>
+                <p><strong>Freeze:</strong> <span id="can-freeze" class="text-red-500">❌</span></p>
+                <p><strong>Wipe:</strong> <span id="can-wipe" class="text-red-500">❌</span></p>
+                <p><strong>Local Mint:</strong> <span id="can-local-mint" class="text-red-500">❌</span></p>
+            </div>
+        </div>
+    </section>
 
- <!-- Gradient Divider -->
- <div class="h-1 bg-gradient-to-r from-red-600 to-red-900"></div>
+    <!-- Gradient Divider -->
+    <div class="h-1 bg-gradient-to-r from-red-600 to-red-900"></div>
 
- <!-- Tokenomics Section -->
- <section id="tokenomics" class="py-40 bg-black">
- <div class="container mx-auto px-4 text-center">
- <h2 class="text-4xl font-bold font-poppins text-red-500 mb-10">Tokenomics</h2>
- <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-4xl mx-auto">
- <div class="bg-gray-900 p-6 rounded-lg">
- <h3 class="text-xl font-semibold font-poppins text-red-500 mb-2">Token Details</h3>
- <p class="text-lg leading-relaxed">ID: <span id="ticker">ROAR-e5185d</span></p>
- <p class="text-lg leading-relaxed">Decimals: <span id="decimals">10</span></p>
- <p class="text-lg leading-relaxed">Total Supply: <span id="total-supply">1,847,358</span> ROAR</p>
- <p class="text-lg leading-relaxed">Circulating Supply: <span id="circulating-supply">1,365,532</span> ROAR</p>
- </div>
- <div class="bg-gray-900 p-6 rounded-lg">
- <h3 class="text-xl font-semibold font-poppins text-red-500 mb-2">Burn & Distribution</h3>
- <p class="text-lg leading-relaxed">Burnt Supply: <span id="burnt-supply">3,748,643,897.427984</span> ROAR</p>
- <p class="text-lg leading-relaxed">Initial Minted: <span id="initial-minted">22,222,220</span> ROAR</p>
- </div>
- <div class="bg-gray-900 p-6 rounded-lg">
- <h3 class="text-xl font-semibold font-poppins text-red-500 mb-2">Community Stats</h3>
- <p class="text-lg leading-relaxed">Holders: <span id="holders">1,554</span></p>
- <p class="text-lg leading-relaxed">Transactions: <span id="transactions">7,415</span></p>
- </div>
- </div>
- </div>
- </section>
+    <!-- Tokenomics Section -->
+    <section id="tokenomics" class="py-40 bg-black">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl font-bold font-poppins text-red-500 mb-10">Tokenomics</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-4xl mx-auto">
+                <div class="bg-gray-900 p-6 rounded-lg">
+                    <h3 class="text-xl font-semibold font-poppins text-red-500 mb-2">Token Details</h3>
+                    <p class="text-lg leading-relaxed">ID: <span id="ticker">ROAR-e5185d</span></p>
+                    <p class="text-lg leading-relaxed">Decimals: <span id="decimals">10</span></p>
+                    <p class="text-lg leading-relaxed">Total Supply: <span id="total-supply">1,847,358</span> ROAR</p>
+                    <p class="text-lg leading-relaxed">Circulating Supply: <span id="circulating-supply">1,365,532</span> ROAR</p>
+                </div>
+                <div class="bg-gray-900 p-6 rounded-lg">
+                    <h3 class="text-xl font-semibold font-poppins text-red-500 mb-2">Burn & Distribution</h3>
+                    <p class="text-lg leading-relaxed">Burnt Supply: <span id="burnt-supply">3,748,643,897.427984</span> ROAR</p>
+                    <p class="text-lg leading-relaxed">Initial Minted: <span id="initial-minted">22,222,220</span> ROAR</p>
+                </div>
+                <div class="bg-gray-900 p-6 rounded-lg">
+                    <h3 class="text-xl font-semibold font-poppins text-red-500 mb-2">Community Stats</h3>
+                    <p class="text-lg leading-relaxed">Holders: <span id="holders">1,554</span></p>
+                    <p class="text-lg leading-relaxed">Transactions: <span id="transactions">7,415</span></p>
+                </div>
+            </div>
+        </div>
+    </section>
 
- <!-- Gradient Divider -->
- <div class="h-1 bg-gradient-to-r from-red-600 to-red-900"></div>
+    <!-- Gradient Divider -->
+    <div class="h-1 bg-gradient-to-r from-red-600 to-red-900"></div>
 
- <!-- Dashboard Section -->
- <section id="dashboard" class="py-40 bg-black">
- <div class="container mx-auto px-4 text-center">
- <h2 class="text-4xl font-bold font-poppins text-red-500 mb-10">ROAR Dashboard</h2>
- <div class="grid grid-cols-1 md:grid-cols-4 gap-6 max-w-6xl mx-auto">
- <div class="bg-gray-900 p-6 rounded-lg">
- <h3 class="text-xl font-semibold font-poppins text-red-500 mb-2">Price</h3>
- <p class="text-2xl"><span id="roar-price">0.008854</span> USD</p>
- </div>
- <div class="bg-gray-900 p-6 rounded-lg">
- <h3 class="text-xl font-semibold font-poppins text-red-500 mb-2">Market Cap</h3>
- <p class="text-2xl"><span id="market-cap">12,090.49</span> USD</p>
- </div>
- <div class="bg-gray-900 p-6 rounded-lg">
- <h3 class="text-xl font-semibold font-poppins text-red-500 mb-2">24H Volume</h3>
- <p class="text-2xl"><span id="volume">12.66</span> USD</p>
- </div>
- <div class="bg-gray-900 p-6 rounded-lg">
- <h3 class="text-xl font-semibold font-poppins text-red-500 mb-2">Liquidity</h3>
- <p class="text-2xl"><span id="liquidity">667.54</span> USD</p>
- </div>
- <div class="bg-gray-900 p-6 rounded-lg">
- <h3 class="text-xl font-semibold font-poppins text-red-500 mb-2">Holders</h3>
- <p class="text-2xl"><span id="dashboard-holders">1,554</span></p>
- </div>
- <div class="bg-gray-900 p-6 rounded-lg">
- <h3 class="text-xl font-semibold font-poppins text-red-500 mb-2">Transactions</h3>
- <p class="text-2xl"><span id="dashboard-transactions">7,415</span></p>
- </div>
- <div class="bg-gray-900 p-6 rounded-lg">
- <h3 class="text-xl font-semibold font-poppins text-red-500 mb-2">Transfers</h3>
- <p class="text-2xl"><span id="transfers">75,151</span></p>
- </div>
- <div class="bg-gray-900 p-6 rounded-lg">
- <h3 class="text-xl font-semibold font-poppins text-red-500 mb-2">Trade Count</h3>
- <p class="text-2xl"><span id="trade-count">9,731</span></p>
- </div>
- </div>
- <p class="text-sm text-red-500 mt-4">* Liquidity is incorrectly read from the API; the correct value is available on <a href="https://e-compass.io/token/ROAR-e5185d">e-Compass</a>.</p>
- </div>
- </section>
+    <!-- Dashboard Section -->
+    <section id="dashboard" class="py-40 bg-black">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl font-bold font-poppins text-red-500 mb-10">ROAR Dashboard</h2>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6 max-w-6xl mx-auto">
+                <div class="bg-gray-900 p-6 rounded-lg">
+                    <h3 class="text-xl font-semibold font-poppins text-red-500 mb-2">Price</h3>
+                    <p class="text-2xl"><span id="roar-price">0.008854</span> USD</p>
+                </div>
+                <div class="bg-gray-900 p-6 rounded-lg">
+                    <h3 class="text-xl font-semibold font-poppins text-red-500 mb-2">Market Cap</h3>
+                    <p class="text-2xl"><span id="market-cap">12,090.49</span> USD</p>
+                </div>
+                <div class="bg-gray-900 p-6 rounded-lg">
+                    <h3 class="text-xl font-semibold font-poppins text-red-500 mb-2">24H Volume</h3>
+                    <p class="text-2xl"><span id="volume">12.66</span> USD</p>
+                </div>
+                <div class="bg-gray-900 p-6 rounded-lg">
+                    <h3 class="text-xl font-semibold font-poppins text-red-500 mb-2">Liquidity</h3>
+                    <p class="text-2xl"><span id="liquidity">667.54</span> USD</p>
+                </div>
+                <div class="bg-gray-900 p-6 rounded-lg">
+                    <h3 class="text-xl font-semibold font-poppins text-red-500 mb-2">Holders</h3>
+                    <p class="text-2xl"><span id="dashboard-holders">1,554</span></p>
+                </div>
+                <div class="bg-gray-900 p-6 rounded-lg">
+                    <h3 class="text-xl font-semibold font-poppins text-red-500 mb-2">Transactions</h3>
+                    <p class="text-2xl"><span id="dashboard-transactions">7,415</span></p>
+                </div>
+                <div class="bg-gray-900 p-6 rounded-lg">
+                    <h3 class="text-xl font-semibold font-poppins text-red-500 mb-2">Transfers</h3>
+                    <p class="text-2xl"><span id="transfers">75,151</span></p>
+                </div>
+                <div class="bg-gray-900 p-6 rounded-lg">
+                    <h3 class="text-xl font-semibold font-poppins text-red-500 mb-2">Trade Count</h3>
+                    <p class="text-2xl"><span id="trade-count">9,731</span></p>
+                </div>
+            </div>
+            <p class="text-sm text-red-500 mt-4">* Liquidity is incorrectly read from the API; the correct value is available on <a href="https://e-compass.io/token/ROAR-e5185d">e-Compass</a>.</p>
+        </div>
+    </section>
 
- <!-- Gradient Divider -->
- <div class="h-1 bg-gradient-to-r from-red-600 to-red-900"></div>
+    <!-- Gradient Divider -->
+    <div class="h-1 bg-gradient-to-r from-red-600 to-red-900"></div>
 
- <!-- How to Buy Section -->
- <section id="buy" class="py-40">
- <div class="container mx-auto px-4 text-center">
- <h2 class="text-4xl font-bold font-poppins text-red-500 mb-10">How to Buy ROAR</h2>
- <p class="text-lg sm:text-xl leading-relaxed mb-6 max-w-3xl mx-auto">
- Get ROAR on decentralized exchanges like xExchange or OneDex, or use xPortal to buy and hold.
- </p>
- <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
- <a href="https://xexchange.com/trade?firstToken=EGLD&secondToken=ROAR-e5185d" class="bg-red-600 text-white px-6 py-3 rounded-full font-semibold text-lg">xExchange</a>
- <a href="https://swap.onedex.app/swap?firstToken=EGLD&secondToken=ROAR-e5185d&state=Lite&type=simple" class="bg-red-600 text-white px-6 py-3 rounded-full font-semibold text-lg">OneDex</a>
- <a href="https://xportal.com/" class="bg-red-600 text-white px-6 py-3 rounded-full font-semibold text-lg">xPortal</a>
- </div>
- </div>
- </section>
+    <!-- How to Buy Section -->
+    <section id="buy" class="py-40">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl font-bold font-poppins text-red-500 mb-10">How to Buy ROAR</h2>
+            <p class="text-lg sm:text-xl leading-relaxed mb-6 max-w-3xl mx-auto">
+                Get ROAR on decentralized exchanges like xExchange or OneDex, or use xPortal to buy and hold.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+                <a href="https://xexchange.com/trade?firstToken=EGLD&secondToken=ROAR-e5185d" class="bg-red-600 text-white px-6 py-3 rounded-full font-semibold text-lg">xExchange</a>
+                <a href="https://swap.onedex.app/swap?firstToken=EGLD&secondToken=ROAR-e5185d&state=Lite&type=simple" class="bg-red-600 text-white px-6 py-3 rounded-full font-semibold text-lg">OneDex</a>
+                <a href="https://xportal.com/" class="bg-red-600 text-white px-6 py-3 rounded-full font-semibold text-lg">xPortal</a>
+            </div>
+        </div>
+    </section>
 
- <!-- Gradient Divider -->
- <div class="h-1 bg-gradient-to-r from-red-600 to-red-900"></div>
+    <!-- Gradient Divider -->
+    <div class="h-1 bg-gradient-to-r from-red-600 to-red-900"></div>
 
- <!-- Staking Section -->
- <section id="staking" class="py-40 bg-black">
- <div class="container mx-auto px-4 text-center">
- <h2 class="text-4xl font-bold font-poppins text-red-500 mb-10">Staking ROAR</h2>
- <p class="text-lg sm:text-xl leading-relaxed mb-10 max-w-3xl mx-auto">
- Stake ROAR on platforms like xExchange or OneDex to earn automatic rewards. Join liquidity pools or participate in native staking contracts for additional benefits.
- </p>
- <a href="https://swap.onedex.app/staking" class="bg-red-600 text-white px-6 py-3 rounded-full font-semibold text-lg mt-6">Start Staking</a>
- </div>
- </section>
+    <!-- Staking Section -->
+    <section id="staking" class="py-40 bg-black">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl font-bold font-poppins text-red-500 mb-10">Staking ROAR</h2>
+            <p class="text-lg sm:text-xl leading-relaxed mb-10 max-w-3xl mx-auto">
+                Stake ROAR on platforms like xExchange or OneDex to earn automatic rewards. Join liquidity pools or participate in native staking contracts for additional benefits.
+            </p>
+            <a href="https://swap.onedex.app/staking" class="bg-red-600 text-white px-6 py-3 rounded-full font-semibold text-lg mt-6">Start Staking</a>
+        </div>
+    </section>
 
- <!-- Gradient Divider -->
- <div class="h-1 bg-gradient-to-r from-red-600 to-red-900"></div>
+    <!-- Gradient Divider -->
+    <div class="h-1 bg-gradient-to-r from-red-600 to-red-900"></div>
 
- <!-- DAO Section -->
- <section id="dao" class="py-40">
- <div class="container mx-auto px-4 text-center">
- <h2 class="text-4xl font-bold font-poppins text-red-500 mb-10">DAO Governance</h2>
- <p class="text-lg sm:text-xl leading-relaxed mb-6 max-w-3xl mx-auto">
- ROAR’s community-driven DAO lets holders vote on key decisions. The HSXGEN SFT offers exclusive governance benefits for early adopters.
- </p>
- <a href="https://xoxno.com/collection/HSXGEN-858f65" class="bg-red-600 text-white px-6 py-3 rounded-full font-semibold text-lg mt-6">Trade HSXGEN SFT</a>
- </div>
- </section>
+    <!-- DAO Section -->
+    <section id="dao" class="py-40">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl font-bold font-poppins text-red-500 mb-10">DAO Governance</h2>
+            <p class="text-lg sm:text-xl leading-relaxed mb-6 max-w-3xl mx-auto">
+                ROAR’s community-driven DAO lets holders vote on key decisions. The HSXGEN SFT offers exclusive governance benefits for early adopters.
+            </p>
+            <a href="https://xoxno.com/collection/HSXGEN-858f65" class="bg-red-600 text-white px-6 py-3 rounded-full font-semibold text-lg mt-6">Trade HSXGEN SFT</a>
+        </div>
+    </section>
 
- <!-- Gradient Divider -->
- <div class="h-1 bg-gradient-to-r from-red-600 to-red-900"></div>
+    <!-- Gradient Divider -->
+    <div class="h-1 bg-gradient-to-r from-red-600 to-red-900"></div>
 
- <!-- Community Section -->
- <section id="community" class="py-40 bg-black">
- <div class="container mx-auto px-4 text-center">
- <h2 class="text-4xl font-bold font-poppins text-red-500 mb-10">Join the Lion Squad</h2>
- <p class="text-lg sm:text-xl leading-relaxed mb-6 max-w-3xl mx-auto">
- Connect with the ROAR community on Twitter and Telegram. Participate in raffles on JEXchange and support the MultiversX ecosystem!
- </p>
- <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
- <a href="https://x.com/ROARHighSpeX" class="text-2xl text-white hover:text-red-500"><i class="fab fa-twitter"></i></a>
- <a href="https://t.me/HighSpeXROAR" class="text-2xl text-white hover:text-red-500"><i class="fab fa-telegram"></i></a>
- <a href="https://app.jexchange.io/" class="bg-red-600 text-white px-6 py-3 rounded-full font-semibold text-lg">JEXchange</a>
- </div>
- </div>
- </section>
+    <!-- Community Section -->
+    <section id="community" class="py-40 bg-black">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl font-bold font-poppins text-red-500 mb-10">Join the Lion Squad</h2>
+            <p class="text-lg sm:text-xl leading-relaxed mb-6 max-w-3xl mx-auto">
+                Connect with the ROAR community on Twitter and Telegram. Participate in raffles on JEXchange and support the MultiversX ecosystem!
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+                <a href="https://x.com/ROARHighSpeX" class="text-2xl text-white hover:text-red-500"><i class="fab fa-twitter"></i></a>
+                <a href="https://t.me/HighSpeXROAR" class="text-2xl text-white hover:text-red-500"><i class="fab fa-telegram"></i></a>
+                <a href="https://app.jexchange.io/" class="bg-red-600 text-white px-6 py-3 rounded-full font-semibold text-lg">JEXchange</a>
+            </div>
+        </div>
+    </section>
 
- <!-- Gradient Divider -->
- <div class="h-1 bg-gradient-to-r from-red-600 to-red-900"></div>
+    <!-- Gradient Divider -->
+    <div class="h-1 bg-gradient-to-r from-red-600 to-red-900"></div>
 
- <!-- Charts Section -->
- <section id="charts" class="py-40 bg-black">
- <div class="container mx-auto px-4 text-center">
- <h2 class="text-4xl font-bold font-poppins text-red-500 mb-10">Charts & Explorer</h2>
- <p class="text-lg sm:text-xl leading-relaxed mb-6 max-w-3xl mx-auto">
- Track $ROAR’s performance with real-time data and explore transactions on the MultiversX blockchain.
- </p>
- <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4 mb-6">
- <a href="https://e-compass.io/token/ROAR-e5185d" class="bg-red-600 text-white px-6 py-3 rounded-full font-semibold text-lg">e-Compass</a>
- <a href="https://dexscreener.com/multiversx/erd1qqqqqqqqqqqqqpgqqz6vp9y50ep867vnr296mqf3dduh6guvmvlsu3sujc-roarwegld-ebe52f" class="bg-red-600 text-white px-6 py-3 rounded-full font-semibold text-lg">DEXScreener</a>
- <a href="https://explorer.multiversx.com/tokens/ROAR-e5185d" class="bg-red-600 text-white px-6 py-3 rounded-full font-semibold text-lg">Explorer</a>
- </div>
- <div class="w-full max-w-4xl mx-auto">
- <iframe src="https://dexscreener.com/multiversx/erd1qqqqqqqqqqqqqpgqqz6vp9y50ep867vnr296mqf3dduh6guvmvlsu3sujc-roarwegld-ebe52f?embed=chart×pan=1d" frameborder="0" scrolling="no" style="width: 100%; height: 400px; border: none;" class="rounded-lg"></iframe>
- </div>
- </div>
- </section>
+    <!-- Charts Section -->
+    <section id="charts" class="py-40 bg-black">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl font-bold font-poppins text-red-500 mb-10">Charts & Explorer</h2>
+            <p class="text-lg sm:text-xl leading-relaxed mb-6 max-w-3xl mx-auto">
+                Track $ROAR’s performance with real-time data and explore transactions on the MultiversX blockchain.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4 mb-6">
+                <a href="https://e-compass.io/token/ROAR-e5185d" class="bg-red-600 text-white px-6 py-3 rounded-full font-semibold text-lg">e-Compass</a>
+                <a href="https://dexscreener.com/multiversx/erd1qqqqqqqqqqqqqpgqqz6vp9y50ep867vnr296mqf3dduh6guvmvlsu3sujc-roarwegld-ebe52f" class="bg-red-600 text-white px-6 py-3 rounded-full font-semibold text-lg">DEXScreener</a>
+                <a href="https://explorer.multiversx.com/tokens/ROAR-e5185d" class="bg-red-600 text-white px-6 py-3 rounded-full font-semibold text-lg">Explorer</a>
+            </div>
+            <div class="w-full max-w-4xl mx-auto">
+                <iframe src="https://dexscreener.com/multiversx/erd1qqqqqqqqqqqqqpgqqz6vp9y50ep867vnr296mqf3dduh6guvmvlsu3sujc-roarwegld-ebe52f?embed=chart×pan=1d" frameborder="0" scrolling="no" style="width: 100%; height: 400px; border: none;" class="rounded-lg"></iframe>
+            </div>
+        </div>
+    </section>
 
- <!-- Build Version -->
- <p class="text-sm text-red-500 text-center mt-4">Build version 1.0.3</p>
+    <!-- Build Version -->
+    <p class="text-sm text-red-500 text-center mt-4">Build version 1.0.3</p>
 
- <!-- Footer -->
- <footer class="bg-gray-950 py-6 border-t-2 border-red-900">
- <div class="container mx-auto px-4 text-center">
- <p class="text-lg">Made by <a href="https://x.com/VPopescu_" class="text-red-500 font-bold hover:text-red-700">Vlad.egld</a> with love ❤️ for ROAR</p>
- </div>
- </footer>
+    <!-- Footer -->
+    <footer class="bg-gray-950 py-6 border-t-2 border-red-900">
+        <div class="container mx-auto px-4 text-center">
+            <p class="text-lg">Made by <a href="https://x.com/VPopescu_" class="text-red-500 font-bold hover:text-red-700">Vlad.egld</a> with love ❤️ for ROAR</p>
+        </div>
+    </footer>
 
- <script src="js/script.js"></script>
+    <script src="js/script.js"></script>
 </body>
 </html>
