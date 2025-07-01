@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>ROAR - Real Organization Automatic Rewards</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
@@ -12,7 +12,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollTrigger.min.js"></script>
 </head>
-<body class="bg-black text-white font-inter">
+<body class="bg-black text-white font-inter overflow-x-hidden">
     <!-- Navigation -->
     <nav class="fixed top-0 w-full bg-black bg-opacity-90 z-50">
         <div class="container mx-auto px-4 py-6 flex justify-between items-center">
@@ -39,16 +39,16 @@
         </div>
         <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden md:hidden bg-black w-full absolute top-16 left-0" style="display: none;">
-            <ul class="flex flex-col items-center py-4 space-y-4">
-                <li><a href="#home" class="hover:text-red-500 transition">Home</a></li>
-                <li><a href="#about" class="hover:text-red-500 transition">About</a></li>
-                <li><a href="#tokenomics" class="hover:text-red-500 transition">Tokenomics</a></li>
-                <li><a href="#dashboard" class="hover:text-red-500 transition">Dashboard</a></li>
-                <li><a href="#buy" class="hover:text-red-500 transition">How to Buy</a></li>
-                <li><a href="#staking" class="hover:text-red-500 transition">Staking</a></li>
-                <li><a href="#dao" class="hover:text-red-500 transition">DAO</a></li>
-                <li><a href="#community" class="hover:text-red-500 transition">Community</a></li>
-                <li><a href="#charts" class="hover:text-red-500 transition">Charts</a></li>
+            <ul class="flex flex-col items-center py-3 space-y-3">
+                <li><a href="#home" class="hover:text-red-500 transition text-lg border-b border-red-500 pb-1">Home</a></li>
+                <li><a href="#about" class="hover:text-red-500 transition text-lg border-b border-red-500 pb-1">About</a></li>
+                <li><a href="#tokenomics" class="hover:text-red-500 transition text-lg border-b border-red-500 pb-1">Tokenomics</a></li>
+                <li><a href="#dashboard" class="hover:text-red-500 transition text-lg border-b border-red-500 pb-1">Dashboard</a></li>
+                <li><a href="#buy" class="hover:text-red-500 transition text-lg border-b border-red-500 pb-1">How to Buy</a></li>
+                <li><a href="#staking" class="hover:text-red-500 transition text-lg border-b border-red-500 pb-1">Staking</a></li>
+                <li><a href="#dao" class="hover:text-red-500 transition text-lg border-b border-red-500 pb-1">DAO</a></li>
+                <li><a href="#community" class="hover:text-red-500 transition text-lg border-b border-red-500 pb-1">Community</a></li>
+                <li><a href="#charts" class="hover:text-red-500 transition text-lg border-b border-red-500 pb-1">Charts</a></li>
             </ul>
         </div>
     </nav>
@@ -61,7 +61,7 @@
             <p class="text-xl sm:text-2xl leading-relaxed mb-6 max-w-3xl mx-auto">
                 Your investment, Our commit to your success. Our goal: make invest simple and profitable. Powered by ROARHighSpeX.
             </p>
-            <a href="#buy" class="bg-red-600 text-white px-6 py-3 rounded-full font-semibold text-lg mt-6 hover:scale-105 hover:shadow-lg hover:shadow-red-500/50 transition" style="opacity: 1; display: block;">Get $ROAR</a>
+            <a href="#buy" class="bg-red-600 text-white px-4 py-3 rounded-full font-semibold text-lg mt-6 hover:scale-105 hover:shadow-lg hover:shadow-red-500/50 transition" style="opacity: 1; display: block;">Get $ROAR</a>
         </div>
         <div class="absolute inset-0" id="particles"></div>
     </section>
