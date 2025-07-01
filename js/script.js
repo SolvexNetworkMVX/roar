@@ -1,27 +1,26 @@
 // Wait for DOM to load
 document.addEventListener("DOMContentLoaded", () => {
-    // GSAP Animations
-    gsap.registerPlugin(ScrollTrigger);
+    // Hamburger Menu Toggle
+    const hamburger = document.getElementById("hamburger");
+    const mobileMenu = document.getElementById("mobile-menu");
+    const menuIcon = hamburger?.querySelector("i");
 
-    // Hero section animation (simplified for now)
-    gsap.from("#home img", { y: -50, opacity: 0, duration: 1, delay: 0.2, ease: "power2.out" });
-    gsap.from("#home h1", { y: -30, opacity: 0, duration: 1, delay: 0.4, ease: "power2.out" });
-    gsap.from("#home p", { y: -20, opacity: 0, duration: 1, delay: 0.6, ease: "power2.out" });
-    gsap.from("#home a", { scale: 0.8, opacity: 0, duration: 1, delay: 0.8, ease: "power2.out" });
-
-    // Scroll-triggered animations for section titles
-    gsap.utils.toArray("section h2").forEach((element) => {
-        gsap.from(element, {
-            opacity: 0,
-            y: 30,
-            duration: 1,
-            ease: "power2.out",
-            scrollTrigger: {
-                trigger: element,
-                start: "top 80%",
-            },
+    if (hamburger && mobileMenu && menuIcon) {
+        hamburger.addEventListener("click", () => {
+            const isOpen = mobileMenu.style.maxHeight === "300px";
+            if (isOpen) {
+                mobileMenu.style.maxHeight = "0";
+                menuIcon.classList.remove("fa-times");
+                menuIcon.classList.add("fa-bars");
+            } else {
+                mobileMenu.style.maxHeight = "300px"; // Adjusted to fit content
+                menuIcon.classList.remove("fa-bars");
+                menuIcon.classList.add("fa-times");
+            }
         });
-    });
+    } else {
+        console.error("One or more hamburger elements not found:", { hamburger, mobileMenu, menuIcon });
+    }
 
     // Smooth scrolling for navbar links
     document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
@@ -30,30 +29,16 @@ document.addEventListener("DOMContentLoaded", () => {
             document.querySelector(this.getAttribute('href')).scrollIntoView({
                 behavior: 'smooth'
             });
-        });
-    });
-
-    // Hamburger Menu Toggle
-    const hamburger = document.getElementById("hamburger");
-    const mobileMenu = document.getElementById("mobile-menu");
-    const menuIcon = hamburger?.querySelector("i");
-
-    if (hamburger && mobileMenu && menuIcon) {
-        hamburger.addEventListener("click", () => {
-            const isActive = mobileMenu.style.maxHeight === "300px";
-            if (isActive) {
+            // Close mobile menu if open
+            if (mobileMenu && mobileMenu.style.maxHeight === "300px") {
                 mobileMenu.style.maxHeight = "0";
-                menuIcon.classList.remove("fa-times");
-                menuIcon.classList.add("fa-bars");
-            } else {
-                mobileMenu.style.maxHeight = "300px";
-                menuIcon.classList.remove("fa-bars");
-                menuIcon.classList.add("fa-times");
+                if (menuIcon) {
+                    menuIcon.classList.remove("fa-times");
+                    menuIcon.classList.add("fa-bars");
+                }
             }
         });
-    } else {
-        console.error("One or more hamburger elements not found:", { hamburger, mobileMenu, menuIcon });
-    }
+    });
 
     // Red Particle Effect for Hero Section
     const canvas = document.createElement("canvas");
