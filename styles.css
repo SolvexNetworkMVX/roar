@@ -66,11 +66,13 @@ nav a:hover {
     background: #000000;
     z-index: 60;
     padding: 1rem 0;
-    transition: all 0.3s ease; /* Smooth transition */
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
 }
 
 #mobile-menu.active {
-    display: block;
+    max-height: 300px; /* Adjust based on content height */
 }
 
 /* Hamburger icon animation */
@@ -128,7 +130,7 @@ footer a.text-red-500 {
 /* Ensure button stays visible */
 .animate__hero a {
     position: relative;
-    z-index: 10; /* Above particles */
+    z-index: 20; /* Above particles, increased from 10 */
     opacity: 1 !important; /* Override any hidden opacity */
     display: block !important; /* Ensure visibility */
 }
