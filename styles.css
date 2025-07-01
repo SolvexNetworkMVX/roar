@@ -51,6 +51,8 @@ nav ul a:hover {
 #get-roar-btn {
     box-shadow: 0 4px 15px rgba(255, 0, 0, 0.3); /* Umbră pe buton */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    padding: 10px 24px; /* Mărire subtilă a padding-ului */
+    font-size: 1.1rem; /* Mărire subtilă a fontului */
 }
 
 #get-roar-btn:hover {
@@ -91,7 +93,7 @@ h2:hover::after {
 
 /* Carduri și tabele */
 .bg-gray-900 {
-    border: 1px solid rgba(255, 0, 0, 0.1); /* Chenar subtil */
+    border: 1px solid rgba(255, 0, 0, 0.05); /* Nuanță mai slabă de roșu pentru chenar */
     border-radius: 10px; /* Colțuri mai rotunjite */
     transition: transform 0.3s ease;
 }
@@ -157,7 +159,7 @@ footer a:hover {
         font-size: 1rem;
     }
     #get-roar-btn {
-        font-size: 1rem;
+        font-size: 1.1rem; /* Mărire subtilă și aici */
         padding: 8px 16px;
     }
     #mobile-menu ul {
