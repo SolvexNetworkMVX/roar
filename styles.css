@@ -94,3 +94,9 @@ iframe {
         height: 300px;
     }
 }
+
+/* Footer styles */
+footer a.text-red-500 {
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
