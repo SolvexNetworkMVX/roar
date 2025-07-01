@@ -7,17 +7,16 @@ document.addEventListener("DOMContentLoaded", () => {
     gsap.from(".animate__hero img", { y: -50, opacity: 0, duration: 1, delay: 0.2, ease: "power2.out" });
     gsap.from(".animate__hero h1", { y: -30, opacity: 0, duration: 1, delay: 0.4, ease: "power2.out" });
     gsap.from(".animate__hero p", { y: -20, opacity: 0, duration: 1, delay: 0.6, ease: "power2.out" });
-    gsap.from(".animate__hero a", { 
+    gsap.from("#getRoarBtn", { 
         scale: 0.8, 
         opacity: 0, 
         duration: 1, 
         delay: 0.8,
         ease: "power2.out",
         onComplete: () => {
-            const button = document.querySelector(".animate__hero a");
+            const button = document.getElementById("getRoarBtn");
             button.style.opacity = "1";
             button.style.display = "block";
-            console.log("Button animation completed, display:", button.style.display, "opacity:", button.style.opacity);
         }
     });
 
@@ -60,14 +59,13 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // Redesigned Hamburger Menu with Optimization
+    // Fixed Hamburger Menu with Optimization
     const hamburger = document.getElementById("hamburger");
     const mobileMenu = document.getElementById("mobile-menu");
     const menuIcon = hamburger?.querySelector("i");
 
     if (hamburger && mobileMenu && menuIcon) {
         hamburger.addEventListener("click", () => {
-            console.log("Hamburger clicked");
             const isActive = hamburger.classList.contains("active");
             if (isActive) {
                 hamburger.classList.remove("active");
@@ -78,7 +76,7 @@ document.addEventListener("DOMContentLoaded", () => {
             } else {
                 hamburger.classList.add("active");
                 mobileMenu.classList.add("active");
-                mobileMenu.style.maxHeight = "300px"; // Adjust based on content
+                mobileMenu.style.maxHeight = "300px";
                 menuIcon.classList.remove("fa-bars");
                 menuIcon.classList.add("fa-times");
             }
@@ -94,7 +92,7 @@ document.addEventListener("DOMContentLoaded", () => {
     canvas.height = window.innerHeight;
     const ctx = canvas.getContext("2d");
     const particles = [];
-    const particleCount = 30; // Reduced for mobile performance
+    const particleCount = 30;
 
     for (let i = 0; i < particleCount; i++) {
         particles.push({
@@ -144,7 +142,7 @@ document.addEventListener("DOMContentLoaded", () => {
         try {
             const response = await fetch("https://api.multiversx.com/tokens/ROAR-e5185d");
             const tokenData = await response.json();
-            console.log("API Response:", tokenData); // Debug API response
+            console.log("API Response:", tokenData);
 
             // Tokenomics Section
             document.getElementById("ticker").textContent = tokenData.identifier || "ROAR-e5185d";
@@ -173,7 +171,6 @@ document.addEventListener("DOMContentLoaded", () => {
             document.getElementById("can-local-mint").textContent = tokenData.canLocalMint ? "✔" : "❌";
         } catch (error) {
             console.error("Error fetching token data:", error);
-            // Fallback values already set in HTML
         }
     }
 
