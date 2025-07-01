@@ -2,14 +2,15 @@
 gsap.registerPlugin(ScrollTrigger);
 
 // Hero section animation with button fix
-gsap.from(".animate__hero img", { y: -50, opacity: 0, duration: 1, delay: 0.2 });
-gsap.from(".animate__hero h1", { y: -30, opacity: 0, duration: 1, delay: 0.4 });
-gsap.from(".animate__hero p", { y: -20, opacity: 0, duration: 1, delay: 0.6 });
+gsap.from(".animate__hero img", { y: -50, opacity: 0, duration: 1, delay: 0.2, ease: "power2.out" });
+gsap.from(".animate__hero h1", { y: -30, opacity: 0, duration: 1, delay: 0.4, ease: "power2.out" });
+gsap.from(".animate__hero p", { y: -20, opacity: 0, duration: 1, delay: 0.6, ease: "power2.out" });
 gsap.from(".animate__hero a", { 
     scale: 0.8, 
     opacity: 0, 
     duration: 1, 
     delay: 0.8,
+    ease: "power2.out",
     onComplete: () => {
         const button = document.querySelector(".animate__hero a");
         button.style.opacity = "1";
@@ -24,6 +25,7 @@ gsap.utils.toArray(".animate__fadeIn").forEach((element) => {
         opacity: 0,
         y: 30,
         duration: 1,
+        ease: "power2.out",
         scrollTrigger: {
             trigger: element,
             start: "top 80%",
@@ -38,10 +40,21 @@ gsap.utils.toArray(".animate__card").forEach((element, index) => {
         scale: 0.95,
         duration: 0.8,
         delay: index * 0.2,
+        ease: "power2.out",
         scrollTrigger: {
             trigger: element,
             start: "top 90%",
         },
+    });
+});
+
+// Smooth scrolling for navbar links
+document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+        });
     });
 });
 
@@ -77,15 +90,15 @@ canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 const ctx = canvas.getContext("2d");
 const particles = [];
-const particleCount = 50;
+const particleCount = 30; // Reduced for mobile performance
 
 for (let i = 0; i < particleCount; i++) {
     particles.push({
         x: Math.random() * canvas.width,
         y: Math.random() * canvas.height,
         radius: Math.random() * 2 + 1,
-        speedX: (Math.random() - 0.5) * 2,
-        speedY: (Math.random() - 0.5) * 2,
+        speedX: (Math.random() - 0.5) * 1.5, // Reduced speed
+        speedY: (Math.random() - 0.5) * 1.5, // Reduced speed
     });
 }
 
