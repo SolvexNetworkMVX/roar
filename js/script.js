@@ -37,6 +37,18 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
+    // Handle "Get $ROAR" button for external link with compatibility check
+    const getRoarBtn = document.getElementById("get-roar-btn");
+    if (getRoarBtn) {
+        getRoarBtn.addEventListener("click", (e) => {
+            e.preventDefault(); // Prevent default if needed
+            window.location.href = getRoarBtn.getAttribute("href"); // Direct navigation
+            console.log("Attempting to navigate to:", getRoarBtn.getAttribute("href"));
+        });
+    } else {
+        console.error("Get $ROAR button not found");
+    }
+
     // Hero Section Animation
     gsap.registerPlugin(ScrollTrigger);
     gsap.from("#hero-logo", { y: -50, opacity: 0, duration: 1, delay: 0.2, ease: "power2.out" });
