@@ -37,35 +37,50 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 
-    // Handle "Get $ROAR" button for external link with robust logic
+    // Handle "Get $ROAR" button with robust navigation logic
     const getRoarBtn = document.getElementById("get-roar-btn");
     if (getRoarBtn) {
-        const handleNavigation = () => {
+        const navigateToExchange = () => {
             const url = getRoarBtn.getAttribute("href");
             if (!url) {
-                console.error("No href attribute found on Get $ROAR button");
+                console.error("Error: No href attribute found on Get $ROAR button");
                 return;
             }
+
+            // Validate URL
+            const isValidUrl = /^(https?:\/\/).+$/.test(url);
+            if (!isValidUrl) {
+                console.error("Error: Invalid URL:", url);
+                return;
+            }
+
+            console.log("Attempting navigation to:", url, "on", window.location.hostname);
+
+            // Check if pop-up is blocked
+            let newWindow;
             try {
-                if (window.location.hostname === "localhost" || window.location.protocol === "file:") {
-                    window.open(url, "_blank");
+                newWindow = window.open(url, "_blank");
+                if (newWindow === null || typeof newWindow === "undefined") {
+                    console.warn("Pop-up blocked by browser. Falling back to direct navigation.");
+                    window.location.assign(url); // Fallback to direct navigation
                 } else {
-                    window.location.assign(url); // Alternative to href for better compatibility
+                    newWindow.focus();
                 }
-                console.log("Navigating to:", url, "on", window.location.hostname);
             } catch (error) {
-                console.error("Navigation failed:", error);
+                console.error("Navigation error:", error);
+                window.location.assign(url); // Final fallback
             }
         };
 
+        // Unified event listener for click and touch
         getRoarBtn.addEventListener("click", (e) => {
             e.preventDefault();
-            handleNavigation();
+            navigateToExchange();
         });
 
         getRoarBtn.addEventListener("touchend", (e) => {
             e.preventDefault();
-            handleNavigation();
+            navigateToExchange();
         }, { passive: false });
     } else {
         console.error("Get $ROAR button not found");
