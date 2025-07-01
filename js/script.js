@@ -11,7 +11,10 @@ gsap.from(".animate__hero a", {
     duration: 1, 
     delay: 0.8,
     onComplete: () => {
-        document.querySelector(".animate__hero a").style.display = "block"; // Ensure button stays visible
+        const button = document.querySelector(".animate__hero a");
+        button.style.opacity = "1";
+        button.style.display = "block";
+        console.log("Button animation completed, display:", button.style.display, "opacity:", button.style.opacity);
     }
 });
 
@@ -47,20 +50,25 @@ const hamburger = document.getElementById("hamburger");
 const mobileMenu = document.getElementById("mobile-menu");
 const menuIcon = hamburger.querySelector("i");
 
-hamburger.addEventListener("click", () => {
-    const isActive = hamburger.classList.contains("active");
-    if (isActive) {
-        hamburger.classList.remove("active");
-        mobileMenu.classList.remove("active");
-        menuIcon.classList.remove("fa-times");
-        menuIcon.classList.add("fa-bars");
-    } else {
-        hamburger.classList.add("active");
-        mobileMenu.classList.add("active");
-        menuIcon.classList.remove("fa-bars");
-        menuIcon.classList.add("fa-times");
-    }
-});
+if (hamburger && mobileMenu && menuIcon) {
+    hamburger.addEventListener("click", () => {
+        console.log("Hamburger clicked");
+        const isActive = hamburger.classList.contains("active");
+        if (isActive) {
+            hamburger.classList.remove("active");
+            mobileMenu.style.display = "none";
+            menuIcon.classList.remove("fa-times");
+            menuIcon.classList.add("fa-bars");
+        } else {
+            hamburger.classList.add("active");
+            mobileMenu.style.display = "block";
+            menuIcon.classList.remove("fa-bars");
+            menuIcon.classList.add("fa-times");
+        }
+    });
+} else {
+    console.error("One or more hamburger elements not found:", { hamburger, mobileMenu, menuIcon });
+}
 
 // Red Particle Effect for Hero Section
 const canvas = document.createElement("canvas");
