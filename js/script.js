@@ -1,4 +1,3 @@
-// Wait for DOM to load
 document.addEventListener("DOMContentLoaded", () => {
     // Hamburger Menu Toggle
     const hamburger = document.getElementById("hamburger");
@@ -8,48 +7,67 @@ document.addEventListener("DOMContentLoaded", () => {
     if (hamburger && mobileMenu && menuIcon) {
         hamburger.addEventListener("click", () => {
             const isOpen = mobileMenu.style.maxHeight === "300px";
-            if (isOpen) {
+            mobileMenu.style.maxHeight = isOpen ? "0" : "300px"; // Toggle max-height
+            menuIcon.className = isOpen ? "fas fa-bars text-red-500" : "fas fa-times text-red-500"; // Switch icon
+        });
+
+        // Close menu when a link is clicked
+        mobileMenu.querySelectorAll("a").forEach(link => {
+            link.addEventListener("click", () => {
                 mobileMenu.style.maxHeight = "0";
-                menuIcon.classList.remove("fa-times");
-                menuIcon.classList.add("fa-bars");
-            } else {
-                mobileMenu.style.maxHeight = "300px"; // Adjusted to fit content
-                menuIcon.classList.remove("fa-bars");
-                menuIcon.classList.add("fa-times");
-            }
+                menuIcon.className = "fas fa-bars text-red-500";
+            });
         });
     } else {
-        console.error("One or more hamburger elements not found:", { hamburger, mobileMenu, menuIcon });
+        console.error("Hamburger menu elements not found:", { hamburger, mobileMenu, menuIcon });
     }
 
-    // Smooth scrolling for navbar links
+    // Smooth scrolling for all navigation links
     document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
+        anchor.addEventListener("click", (e) => {
             e.preventDefault();
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
-            });
-            // Close mobile menu if open
-            if (mobileMenu && mobileMenu.style.maxHeight === "300px") {
-                mobileMenu.style.maxHeight = "0";
-                if (menuIcon) {
-                    menuIcon.classList.remove("fa-times");
-                    menuIcon.classList.add("fa-bars");
+            const target = document.querySelector(anchor.getAttribute("href"));
+            if (target) {
+                target.scrollIntoView({ behavior: "smooth" });
+                // Close mobile menu if open
+                if (mobileMenu && mobileMenu.style.maxHeight === "300px") {
+                    mobileMenu.style.maxHeight = "0";
+                    if (menuIcon) menuIcon.className = "fas fa-bars text-red-500";
                 }
             }
         });
     });
 
-    // Red Particle Effect for Hero Section
+    // Hero Section Animation
+    gsap.registerPlugin(ScrollTrigger);
+    gsap.from("#hero-logo", { y: -50, opacity: 0, duration: 1, delay: 0.2, ease: "power2.out" });
+    gsap.from("#home h1", { y: -30, opacity: 0, duration: 1, delay: 0.4, ease: "power2.out" });
+    gsap.from("#home p", { y: -20, opacity: 0, duration: 1, delay: 0.6, ease: "power2.out" });
+    gsap.from("#get-roar-btn", { scale: 0.8, opacity: 0, duration: 1, delay: 0.8, ease: "power2.out" });
+
+    // Section Title Animations
+    gsap.utils.toArray("section h2").forEach((title) => {
+        gsap.from(title, {
+            opacity: 0,
+            y: 30,
+            duration: 1,
+            ease: "power2.out",
+            scrollTrigger: {
+                trigger: title,
+                start: "top 80%",
+            },
+        });
+    });
+
+    // Particle Effect for Hero Section
     const canvas = document.createElement("canvas");
     document.getElementById("particles").appendChild(canvas);
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
     const ctx = canvas.getContext("2d");
     const particles = [];
-    const particleCount = 30;
 
-    for (let i = 0; i < particleCount; i++) {
+    for (let i = 0; i < 30; i++) {
         particles.push({
             x: Math.random() * canvas.width,
             y: Math.random() * canvas.height,
@@ -81,16 +99,23 @@ document.addEventListener("DOMContentLoaded", () => {
         canvas.height = window.innerHeight;
     });
 
-    // Check Logo Display
-    const logo = document.getElementById("logo");
-    if (!logo.src || logo.src.includes("undefined")) {
-        console.error("Logo not found or path incorrect. Check 'assets/roar2.png' exists.");
-        logo.style.display = "none";
-        logo.nextElementSibling.style.display = "block";
-    } else {
-        logo.onload = () => console.log("Logo loaded successfully.");
-        logo.onerror = () => console.error("Failed to load logo. Verify file path.");
-    }
+    // Logo Loading Check
+    const navLogo = document.getElementById("nav-logo");
+    const heroLogo = document.getElementById("hero-logo");
+    [navLogo, heroLogo].forEach(logo => {
+        if (!logo.src || logo.src.includes("undefined")) {
+            console.error("Logo not found. Verify 'roar2.png' exists in the root directory.");
+            logo.style.display = "none";
+            logo.nextElementSibling.style.display = "block"; // Show text if logo fails
+        } else {
+            logo.onload = () => console.log("Logo loaded successfully for", logo.id);
+            logo.onerror = () => {
+                console.error("Failed to load logo for", logo.id, ". Verify file path.");
+                logo.style.display = "none";
+                logo.nextElementSibling.style.display = "block";
+            };
+        }
+    });
 
     // Fetch real-time ROAR data from MultiversX API
     async function fetchTokenData() {
