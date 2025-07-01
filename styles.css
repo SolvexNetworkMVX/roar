@@ -22,15 +22,18 @@ nav a:hover {
 
 .animate__hero img, .animate__hero h1, .animate__hero p, .animate__hero a {
     opacity: 0;
+    will-change: transform; /* Optimize animation performance */
 }
 
 .animate__fadeIn {
     opacity: 0;
+    will-change: transform; /* Optimize animation performance */
 }
 
 .animate__card {
     opacity: 0;
     transform: translateY(20px);
+    will-change: transform; /* Optimize animation performance */
 }
 
 .animate__pulse {
@@ -63,6 +66,7 @@ nav a:hover {
     background: #000000;
     z-index: 60;
     padding: 1rem 0;
+    transition: all 0.3s ease; /* Smooth transition */
 }
 
 #mobile-menu.active {
@@ -111,8 +115,9 @@ iframe {
 footer {
     margin-top: auto; /* Pushes footer to bottom */
     border-top-width: 2px;
-    padding-top: 2rem;
-    padding-bottom: 2rem;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    background-color: #0f0f0f; /* bg-gray-950 */
 }
 
 footer a.text-red-500 {
@@ -131,7 +136,9 @@ footer a.text-red-500 {
 /* Media query for button size on PC */
 @media (min-width: 768px) {
     .animate__hero a {
-        padding-left: 2rem; /* px-8 */
-        padding-right: 2rem; /* px-8 */
+        padding-left: 0.75rem; /* px-3 */
+        padding-right: 0.75rem; /* px-3 */
+        padding-top: 0.5rem; /* py-2 */
+        padding-bottom: 0.5rem; /* py-2 */
     }
 }
