@@ -6,8 +6,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (hamburger && mobileMenu && menuIcon) {
         hamburger.addEventListener("click", () => {
-            const isOpen = mobileMenu.style.maxHeight === "400px"; // Increased max-height
-            mobileMenu.style.maxHeight = isOpen ? "0" : "400px"; // Increased max-height
+            const isOpen = mobileMenu.style.maxHeight === "400px";
+            mobileMenu.style.maxHeight = isOpen ? "0" : "400px";
             menuIcon.className = isOpen ? "fas fa-bars text-red-500" : "fas fa-times text-red-500";
         });
 
@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const target = document.querySelector(anchor.getAttribute("href"));
             if (target) {
                 target.scrollIntoView({ behavior: "smooth" });
-                if (mobileMenu && mobileMenu.style.maxHeight === "400px") { // Updated max-height
+                if (mobileMenu && mobileMenu.style.maxHeight === "400px") {
                     mobileMenu.style.maxHeight = "0";
                     if (menuIcon) menuIcon.className = "fas fa-bars text-red-500";
                 }
@@ -41,12 +41,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const getRoarBtn = document.getElementById("get-roar-btn");
     if (getRoarBtn) {
         getRoarBtn.addEventListener("click", (e) => {
-            e.preventDefault(); // Prevent default behavior
+            e.preventDefault();
             if (window.location.hostname === "localhost" || window.location.protocol === "file:") {
-                // For local testing, open in new tab to simulate mobile behavior
                 window.open(getRoarBtn.getAttribute("href"), "_blank");
             } else {
-                // For live environment, direct navigation
                 window.location.href = getRoarBtn.getAttribute("href");
             }
             console.log("Attempting to navigate to:", getRoarBtn.getAttribute("href"), "on", window.location.hostname);
@@ -54,7 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Add touch event for mobile compatibility
         getRoarBtn.addEventListener("touchend", (e) => {
-            e.preventDefault(); // Prevent default touch behavior
+            e.preventDefault();
             if (window.location.hostname === "localhost" || window.location.protocol === "file:") {
                 window.open(getRoarBtn.getAttribute("href"), "_blank");
             } else {
